@@ -9,12 +9,12 @@
     "outDir": "dist",
     "allowJs": true,
     "lib": ["dom", "es6"],
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./*"]
     }
   },
   "exclude": ["node_modules", "dist"],
   "include": ["src/**/*.ts", "tests/**/*.spec.ts"],
-  "files": ["src/app.ts"]
+  "files": ["app.ts"]
 }
