@@ -10,29 +10,29 @@ import tagRouter from "./src/Modules/tags/tag.router";
 import dosageFormRouter from "./src/Modules/dosage-form/dosage-form.router";
 import errorMiddleware from "./src/middleware/error.Middleware";
 
-const app = express();
-const port = 3002;
+const ReferenceDataService = express();
 
-app.use(bodyParser.json());
-app.use(
+ReferenceDataService.use(bodyParser.json());
+ReferenceDataService.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
-app.use(manufacturerRouter);
-app.use(supplierRouter);
-app.use(paymentMethodRouter);
-app.use(productCategoryRouter);
-app.use(activeIngredientsRouter);
-app.use(unitRouter);
-app.use(tagRouter);
-app.use(dosageFormRouter);
-app.use(errorMiddleware);
+ReferenceDataService.use(manufacturerRouter);
+ReferenceDataService.use(supplierRouter);
+ReferenceDataService.use(paymentMethodRouter);
+ReferenceDataService.use(productCategoryRouter);
+ReferenceDataService.use(activeIngredientsRouter);
+ReferenceDataService.use(unitRouter);
+ReferenceDataService.use(tagRouter);
+ReferenceDataService.use(dosageFormRouter);
+ReferenceDataService.use(errorMiddleware);
 
-app.get("/xibalba/v1/refdata/serviceInfo", (request, response) => {
-  response.json({ serviceName: "Reference Data Service", version: "1.0.0" });
-});
+ReferenceDataService.get(
+  "/xibalba/v1/refdata/serviceInfo",
+  (request, response) => {
+    response.json({ serviceName: "Reference Data Service", version: "1.0.0" });
+  }
+);
 
-app.listen(port, () => {
-  console.info(`Reference Data Service listening on port ${port}!`);
-});
+export default ReferenceDataService;
