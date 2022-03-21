@@ -26,7 +26,7 @@ describe("Given Tags table is populated and non existend ids or invalid ids: ", 
     );
     expect(response.statusCode).toBe(404);
   });
-  test("/xibalba/v1/refdata/tags/[non valid id] should respond with 404 on GET method", async () => {
+  test("/xibalba/v1/refdata/tags/[non valid id] should respond with 400 on GET method", async () => {
     const response = await request(ReferenceDataService).get(
       "/xibalba/v1/refdata/tags/&*"
     );

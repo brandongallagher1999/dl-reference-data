@@ -26,7 +26,7 @@ class SupplierService {
     }
     let queryResult: QueryResult = await supplierRepository.findById(idNum);
     if (queryResult.rowCount < 1) {
-      throw new RefDataExcetpion(400, `No supplier found for id: ${id}`);
+      throw new RefDataExcetpion(404, `No supplier found for id: ${id}`);
     } else {
       let serviceResponse: ServiceResponse = {
         status: 200,
