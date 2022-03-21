@@ -1,6 +1,6 @@
 import request from "supertest";
 import ReferenceDataService from "../app";
-describe("Given existent and valid ids: ", () => {
+describe("Given Units table is populated and valid ids: ", () => {
   test("/xibalba/v1/refdata/units should respond with all units on GET method", async () => {
     const response = await request(ReferenceDataService).get(
       "/xibalba/v1/refdata/units"
@@ -9,7 +9,7 @@ describe("Given existent and valid ids: ", () => {
     expect(response.body.data.length).toBeGreaterThanOrEqual(1);
   });
 
-  test("/xibalba/v1/refdata/units/1 should respond with unit data for id 1 on GET method", async () => {
+  test("/xibalba/v1/refdata/units/:id should respond with unit data for id on GET method", async () => {
     const response = await request(ReferenceDataService).get(
       "/xibalba/v1/refdata/units/1"
     );
@@ -17,7 +17,7 @@ describe("Given existent and valid ids: ", () => {
     expect(response.body.data.id).toBe("1");
   });
 
-  test("/xibalba/v1/refdata/units/types/1 should respond with units for unit type id 1 on GET method", async () => {
+  test("/xibalba/v1/refdata/units/types/:unitTypeId should respond with units for unit type id on GET method", async () => {
     const response = await request(ReferenceDataService).get(
       "/xibalba/v1/refdata/units/types/1"
     );
@@ -26,7 +26,7 @@ describe("Given existent and valid ids: ", () => {
   });
 });
 
-describe("Given non existent id or invalid id", () => {
+describe("Given Units table is populated and non existent id or invalid id", () => {
   test("/xibalba/v1/refdata/units/[non existent id] should respond 404 on GET method", async () => {
     const response = await request(ReferenceDataService).get(
       "/xibalba/v1/refdata/units/78"

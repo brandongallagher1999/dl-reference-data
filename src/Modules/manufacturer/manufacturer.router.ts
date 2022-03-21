@@ -4,14 +4,14 @@ import ManufacturerController from "./manufacturer.controller";
 const manufacturerRouter = express.Router();
 
 manufacturerRouter.get(
-  "/xibalba/v1/refdata/manufacturer",
+  "/xibalba/v1/refdata/manufacturers",
   (request: Request, response: Response, next: NextFunction) => {
     ManufacturerController.findAll(response, next);
   }
 );
 
 manufacturerRouter.get(
-  "/xibalba/v1/refdata/manufacturer/:id",
+  "/xibalba/v1/refdata/manufacturers/:id",
   (request: Request, response: Response, next: NextFunction) => {
     ManufacturerController.findById(request, response, next);
   }

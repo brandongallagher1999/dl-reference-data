@@ -1,12 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
-import manufacturerRouter from "./src/Modules/manufacturers/manufacturer.router";
-import supplierRouter from "./src/Modules/suppliers/supplier.router";
+import manufacturerRouter from "./src/Modules/manufacturer/manufacturer.router";
+import supplierRouter from "./src/Modules/supplier/supplier.router";
 import paymentMethodRouter from "./src/Modules/payment-method/payment-method.router";
 import productCategoryRouter from "./src/Modules/product-category/product-category.router";
 import activeIngredientsRouter from "./src/Modules/active-ingredient/active-ingredient.router";
-import unitRouter from "./src/Modules/units/unit.router";
-import tagRouter from "./src/Modules/tags/tag.router";
+import unitRouter from "./src/Modules/unit/unit.router";
+import tagRouter from "./src/Modules/tag/tag.router";
 import dosageFormRouter from "./src/Modules/dosage-form/dosage-form.router";
 import errorMiddleware from "./src/middleware/error.Middleware";
 
