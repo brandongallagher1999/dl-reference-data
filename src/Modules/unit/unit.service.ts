@@ -1,7 +1,7 @@
 import { ServiceResponse } from "../../types";
 import { QueryResult } from "pg";
 import unitRepository from "./unit.repository";
-import RefDataExcetpion from "../../exceptions/RefDataException";
+import RefDataException from "../../exceptions/RefDataException";
 
 class UnitService {
   async findAll() {
@@ -19,11 +19,11 @@ class UnitService {
     try {
       idNum = BigInt(id);
     } catch (error) {
-      throw new RefDataExcetpion(400, error.message);
+      throw new RefDataException(400, error.message);
     }
     let queryResult: QueryResult = await unitRepository.findById(idNum);
     if (queryResult.rowCount < 1) {
-      throw new RefDataExcetpion(404, `No unit found for id: ${id}`);
+      throw new RefDataException(404, `No unit found for id: ${id}`);
     } else {
       let serviceResponse: ServiceResponse = {
         status: 200,
@@ -36,13 +36,13 @@ class UnitService {
   async findByUnitType(unitTypeId: string) {
     let numUnitTypeId: number = Number(unitTypeId);
     if (Number.isNaN(numUnitTypeId)) {
-      throw new RefDataExcetpion(400, "id provided is not a valid number");
+      throw new RefDataException(400, "id provided is not a valid number");
     }
     let queryResult: QueryResult = await unitRepository.findByUnitTypeId(
       numUnitTypeId
     );
     if (queryResult.rowCount < 1) {
-      throw new RefDataExcetpion(
+      throw new RefDataException(
         404,
         `No unit found for unit type id: ${unitTypeId}`
       );

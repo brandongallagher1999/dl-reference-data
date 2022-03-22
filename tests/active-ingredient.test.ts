@@ -4,7 +4,7 @@ import ReferenceDataService from "../app";
 describe("Given activeIngredients table is populated and valid ids: ", () => {
   test("/xibalba/v1/refdata/activeIngredients should respond with all activeIngredients on GET method", async () => {
     const response = await request(ReferenceDataService).get(
-      "/xibalba/v1/refdata/manufacturers"
+      "/xibalba/v1/refdata/activeIngredients"
     );
     expect(response.statusCode).toBe(200);
     expect(response.body.data.length).toBeGreaterThanOrEqual(1);

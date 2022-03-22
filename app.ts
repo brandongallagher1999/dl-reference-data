@@ -8,6 +8,7 @@ import activeIngredientsRouter from "./src/Modules/active-ingredient/active-ingr
 import unitRouter from "./src/Modules/unit/unit.router";
 import tagRouter from "./src/Modules/tag/tag.router";
 import dosageFormRouter from "./src/Modules/dosage-form/dosage-form.router";
+import dosageFormTypeRouter from "./src/Modules/dosage-form-type/dosage-form-type.router";
 import errorMiddleware from "./src/middleware/error.Middleware";
 
 const ReferenceDataService = express();
@@ -26,6 +27,7 @@ ReferenceDataService.use(activeIngredientsRouter);
 ReferenceDataService.use(unitRouter);
 ReferenceDataService.use(tagRouter);
 ReferenceDataService.use(dosageFormRouter);
+ReferenceDataService.use(dosageFormTypeRouter);
 ReferenceDataService.use(errorMiddleware);
 
 ReferenceDataService.get(
