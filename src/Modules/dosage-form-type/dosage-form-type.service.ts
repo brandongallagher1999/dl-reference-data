@@ -28,7 +28,7 @@ class DosageFormTypeService {
       let serviceResponse: ServiceResponse = {
         status: 200,
         itemCount: queryResult.rowCount,
-        data: queryResult.rows,
+        data: queryResult.rows[0],
       };
       return serviceResponse;
     }

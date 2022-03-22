@@ -10,7 +10,7 @@ describe("Given Tags table is populated and valid ids: ", () => {
     expect(response.body.data.length).toBeGreaterThanOrEqual(1);
   });
 
-  test("/xibalba/v1/refdata/tags/:id should respond with unit data for id on GET method", async () => {
+  test("/xibalba/v1/refdata/tags/:id should respond with tag data for id on GET method", async () => {
     const response = await request(ReferenceDataService).get(
       "/xibalba/v1/refdata/tags/1"
     );
