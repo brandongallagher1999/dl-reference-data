@@ -3,14 +3,14 @@ import unitTypeController from "./unit-type.controller";
 const unitTypeRouter = express.Router();
 
 unitTypeRouter.get(
-  "/xibalba/v1/refdata/UnitTypes",
+  "/xibalba/v1/refdata/unitTypes",
   (request: Request, response: Response, next: NextFunction) => {
     unitTypeController.findAll(response, next);
   }
 );
 
 unitTypeRouter.get(
-  "/xibalba/v1/refdata/UnitTypes/:id",
+  "/xibalba/v1/refdata/unitTypes/:id",
   (request: Request, response: Response, next: NextFunction) => {
     unitTypeController.findById(request, response, next);
   }
