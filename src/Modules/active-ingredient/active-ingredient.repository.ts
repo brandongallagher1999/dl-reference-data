@@ -6,7 +6,7 @@ class ActiveIngredientRepository {
     return executeQuery(ActiveIngredientQueries.findAll);
   }
 
-  async findById(id: bigint) {
+  async findById(id: number) {
     return executeQueryWithValues(ActiveIngredientQueries.findById, [id]);
   }
 }
