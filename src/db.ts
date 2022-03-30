@@ -35,7 +35,7 @@ export async function executeQuery(queryString: string) {
       client.release();
     }
   } catch (error) {
-    throw new ReferenceDataException(500, error.message);
+    throw error;
   }
 }
 
@@ -57,7 +57,6 @@ export async function executeQueryWithValues(
       client.release();
     }
   } catch (error) {
-    console.log(queryValues);
-    throw new ReferenceDataException(500, error.message);
+    throw error;
   }
 }

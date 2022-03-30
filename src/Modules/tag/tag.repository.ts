@@ -6,7 +6,7 @@ class TagRepository {
     return executeQuery(TagQueries.findAll);
   }
 
-  async findById(id: bigint) {
+  async findById(id: number) {
     return executeQueryWithValues(TagQueries.findById, [id]);
   }
 }

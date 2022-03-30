@@ -28,7 +28,7 @@ class UnitController {
     next: NextFunction
   ) {
     try {
-      const unitTypeId = request.params.id;
+      const unitTypeId = request.params.unitTypeId;
       let serviceResponse: ServiceResponse = await unitService.findByUnitType(
         unitTypeId
       );

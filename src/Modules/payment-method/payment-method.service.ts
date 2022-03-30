@@ -1,7 +1,7 @@
 import { ServiceResponse } from "../../types";
 import { QueryResult } from "pg";
 import paymentMethodRepository from "./payment-method.repository";
-import RefDataExcetpion from "../../exceptions/RefDataException";
+import RefDataException from "../../exceptions/RefDataException";
 
 class PaymentMethodService {
   async findAll(): Promise<ServiceResponse> {
@@ -15,17 +15,15 @@ class PaymentMethodService {
   }
 
   async findById(id: string) {
-    let idNum: bigint;
-    try {
-      idNum = BigInt(id);
-    } catch (error) {
-      throw new RefDataExcetpion(400, error.message);
+    let numId: number = Number(id);
+    if (Number.isNaN(numId)) {
+      throw new RefDataException(400, "id provided is not a valid number");
     }
     let queryResult: QueryResult = await paymentMethodRepository.findById(
-      idNum
+      numId
     );
     if (queryResult.rowCount < 1) {
-      throw new RefDataExcetpion(404, `No payment method found for id: ${id}`);
+      throw new RefDataException(404, `No payment method found for id: ${id}`);
     } else {
       let serviceResponse: ServiceResponse = {
         status: 200,

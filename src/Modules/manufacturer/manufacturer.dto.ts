@@ -1,5 +1,5 @@
 class Manufacturer {
-  id: bigint;
+  id: number;
   long_name: string;
   short_name: string;
 }

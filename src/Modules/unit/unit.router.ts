@@ -18,7 +18,7 @@ unitRouter.get(
 );
 
 unitRouter.get(
-  "/xibalba/v1/refdata/units/types/:id",
+  "/xibalba/v1/refdata/units/types/:unitTypeId",
   (request: Request, response: Response, next: NextFunction) => {
     unitController.findByUnitType(request, response, next);
   }

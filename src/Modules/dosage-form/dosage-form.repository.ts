@@ -6,7 +6,7 @@ class DosageFormRepository {
     return executeQuery(DosageFormQueries.findAll);
   }
 
-  async findById(id: bigint) {
+  async findById(id: number) {
     return executeQueryWithValues(DosageFormQueries.findById, [id]);
   }
 

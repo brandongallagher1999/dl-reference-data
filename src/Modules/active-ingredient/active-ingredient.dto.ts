@@ -1,5 +1,5 @@
 class ActiveIngredient {
-  id: bigint;
+  id: number;
   name: string;
 }
 

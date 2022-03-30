@@ -6,7 +6,7 @@ class ManufacturerRepository {
     return executeQuery(ManufacturerQueries.findAll);
   }
 
-  async findById(id: bigint) {
+  async findById(id: number) {
     return executeQueryWithValues(ManufacturerQueries.findById, [id]);
   }
 }

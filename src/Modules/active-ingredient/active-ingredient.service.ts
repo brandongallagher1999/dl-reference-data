@@ -1,7 +1,7 @@
 import { ServiceResponse } from "../../types";
 import { QueryResult } from "pg";
 import activeIngredientRepository from "./active-ingredient.repository";
-import RefDataExcetpion from "../../exceptions/RefDataException";
+import RefDataException from "../../exceptions/RefDataException";
 
 class ActiveIngredientService {
   async findAll() {
@@ -15,18 +15,15 @@ class ActiveIngredientService {
   }
 
   async findById(id: string) {
-    let idNum: bigint;
-    try {
-      idNum = BigInt(id);
-    } catch (error) {
-      throw new RefDataExcetpion(400, error.message);
+    let numId: number = Number(id);
+    if (Number.isNaN(numId)) {
+      throw new RefDataException(400, "id provided is not a valid number");
     }
-
     let queryResult: QueryResult = await activeIngredientRepository.findById(
-      idNum
+      numId
     );
     if (queryResult.rowCount < 1) {
-      throw new RefDataExcetpion(
+      throw new RefDataException(
         404,
         `No active ingredient found for id: ${id}`
       );

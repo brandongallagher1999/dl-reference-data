@@ -1,5 +1,5 @@
 class Tag {
-  id: bigint;
+  id: number;
   name: string;
 }
 
