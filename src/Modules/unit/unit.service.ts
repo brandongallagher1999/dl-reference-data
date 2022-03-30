@@ -15,13 +15,11 @@ class UnitService {
   }
 
   async findById(id: string) {
-    let idNum: bigint;
-    try {
-      idNum = BigInt(id);
-    } catch (error) {
-      throw new RefDataException(400, error.message);
+    let numId: number = Number(id);
+    if (Number.isNaN(numId)) {
+      throw new RefDataException(400, "id provided is not a valid number");
     }
-    let queryResult: QueryResult = await unitRepository.findById(idNum);
+    let queryResult: QueryResult = await unitRepository.findById(numId);
     if (queryResult.rowCount < 1) {
       throw new RefDataException(404, `No unit found for id: ${id}`);
     } else {
