@@ -1,7 +1,7 @@
 import { ServiceResponse } from "../../types";
 import { QueryResult } from "pg";
 import supplierRepository from "./supplier.repository";
-import RefDataExcetpion from "../../exceptions/RefDataException";
+import RefDataException from "../../exceptions/RefDataException";
 
 class SupplierService {
   async findAll(): Promise<ServiceResponse> {
@@ -18,15 +18,13 @@ class SupplierService {
   }
 
   async findById(id: string) {
-    let idNum: bigint;
-    try {
-      idNum = BigInt(id);
-    } catch (error) {
-      throw new RefDataExcetpion(400, error.message);
+    let numId: number = Number(id);
+    if (Number.isNaN(numId)) {
+      throw new RefDataException(400, "id provided is not a valid number");
     }
-    let queryResult: QueryResult = await supplierRepository.findById(idNum);
+    let queryResult: QueryResult = await supplierRepository.findById(numId);
     if (queryResult.rowCount < 1) {
-      throw new RefDataExcetpion(404, `No supplier found for id: ${id}`);
+      throw new RefDataException(404, `No supplier found for id: ${id}`);
     } else {
       let serviceResponse: ServiceResponse = {
         status: 200,

@@ -1,5 +1,5 @@
 class Supplier {
-  id: bigint;
+  id: number;
   name: string;
 }
 
