@@ -6,7 +6,7 @@ class PaymentMethodRepository {
     return executeQuery(PaymentMethodQueries.findAll);
   }
 
-  async findById(id: bigint) {
+  async findById(id: number) {
     return executeQueryWithValues(PaymentMethodQueries.findById, [id]);
   }
 }
