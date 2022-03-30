@@ -1,5 +1,5 @@
 class DosageForm {
-  id: bigint;
+  id: number;
   name: string;
   dosage_form_type_id: number;
 }

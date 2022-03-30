@@ -1,4 +1,4 @@
-import RefDataExcetpion from "../../exceptions/RefDataException";
+import RefDataException from "../../exceptions/RefDataException";
 import { QueryResult } from "pg";
 import { ServiceResponse } from "../../types";
 import dosageFormRepository from "./dosage-form.repository";
@@ -15,15 +15,13 @@ class DosageFormService {
   }
 
   async findById(id: string) {
-    let idNum: bigint;
-    try {
-      idNum = BigInt(id);
-    } catch (error) {
-      throw new RefDataExcetpion(400, error.message);
+    let numId: number = Number(id);
+    if (Number.isNaN(numId)) {
+      throw new RefDataException(400, "id provided is not a valid number");
     }
-    let queryResult: QueryResult = await dosageFormRepository.findById(idNum);
+    let queryResult: QueryResult = await dosageFormRepository.findById(numId);
     if (queryResult.rowCount < 1) {
-      throw new RefDataExcetpion(404, `No dosage form found for id: ${id}`);
+      throw new RefDataException(404, `No dosage form found for id: ${id}`);
     } else {
       let serviceResponse: ServiceResponse = {
         status: 200,
@@ -37,12 +35,12 @@ class DosageFormService {
   async findByDosageFormTypeId(dosageFormTypeId: string) {
     let numDosageFormTpypeId: number = Number(dosageFormTypeId);
     if (Number.isNaN(numDosageFormTpypeId)) {
-      throw new RefDataExcetpion(400, "id provided is not a valid number");
+      throw new RefDataException(400, "id provided is not a valid number");
     }
     let queryResult: QueryResult =
       await dosageFormRepository.findByDosageFormTypeId(numDosageFormTpypeId);
     if (queryResult.rowCount < 1) {
-      throw new RefDataExcetpion(
+      throw new RefDataException(
         404,
         `No dosage forms found for dosage form type id: ${dosageFormTypeId}`
       );
