@@ -1,7 +1,7 @@
 import { ServiceResponse } from "../../types";
 import { QueryResult } from "pg";
 import tagRepository from "./tag.repository";
-import RefDataExcetpion from "../../exceptions/RefDataException";
+import RefDataException from "../../exceptions/RefDataException";
 
 class TagService {
   async findAll() {
@@ -15,16 +15,13 @@ class TagService {
   }
 
   async findById(id: string) {
-    let idNum: bigint;
-    try {
-      idNum = BigInt(id);
-    } catch (error) {
-      throw new RefDataExcetpion(400, error.message);
+    let numId: number = Number(id);
+    if (Number.isNaN(numId)) {
+      throw new RefDataException(400, "id provided is not a valid number");
     }
-
-    let queryResult: QueryResult = await tagRepository.findById(idNum);
+    let queryResult: QueryResult = await tagRepository.findById(numId);
     if (queryResult.rowCount < 1) {
-      throw new RefDataExcetpion(404, `No tag found with id: ${id}`);
+      throw new RefDataException(404, `No tag found with id: ${id}`);
     } else {
       let serviceResponse: ServiceResponse = {
         status: 200,
