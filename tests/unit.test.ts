@@ -14,7 +14,7 @@ describe("Given Units table is populated and valid ids: ", () => {
       "/xibalba/v1/refdata/units/1"
     );
     expect(response.statusCode).toBe(200);
-    expect(response.body.data.id).toBe("1");
+    expect(response.body.data.id).toBe(1);
   });
 
   test("/xibalba/v1/refdata/units/types/:unitTypeId should respond with units for unit type id on GET method", async () => {

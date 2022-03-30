@@ -15,7 +15,7 @@ describe("Given dosageForms table is populated and valid ids: ", () => {
       "/xibalba/v1/refdata/dosageForms/1"
     );
     expect(response.statusCode).toBe(200);
-    expect(response.body.data.id).toBe("1");
+    expect(response.body.data.id).toBe(1);
   });
 
   test("/xibalba/v1/refdata/dosageForms/dosageFormType/:dosageFormTypeId should respond with all dosageForms for dosageFormTypeId on GET method", async () => {
