@@ -9,7 +9,7 @@ function errorMiddleware(
 ) {
   console.error(error);
   const status = error.status || 500;
-  const message = error.message || "Unkown Error";
+  const message = error.message || "Sorry something went boom on our end!";
   response.status(status).send({
     status,
     message,
