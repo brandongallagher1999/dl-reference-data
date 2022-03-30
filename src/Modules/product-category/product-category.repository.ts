@@ -6,7 +6,7 @@ class ProductCategoryRepository {
     return executeQuery(ProductCategoryQueries.findAll);
   }
 
-  async findById(id: bigint) {
+  async findById(id: number) {
     return executeQueryWithValues(ProductCategoryQueries.findById, [id]);
   }
 }

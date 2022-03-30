@@ -1,7 +1,7 @@
 import { ServiceResponse } from "../../types";
 import { QueryResult } from "pg";
 import productCategoryRepository from "./product-category.repository";
-import RefDataExcetpion from "../../exceptions/RefDataException";
+import RefDataException from "../../exceptions/RefDataException";
 
 class ProductCategoryService {
   async findAll() {
@@ -15,17 +15,15 @@ class ProductCategoryService {
   }
 
   async findById(id: string) {
-    let idNum: bigint;
-    try {
-      idNum = BigInt(id);
-    } catch (error) {
-      throw new RefDataExcetpion(400, error.message);
+    let numId: number = Number(id);
+    if (Number.isNaN(numId)) {
+      throw new RefDataException(400, "id provided is not a valid number");
     }
     let queryResult: QueryResult = await productCategoryRepository.findById(
-      idNum
+      numId
     );
     if (queryResult.rowCount < 1) {
-      throw new RefDataExcetpion(
+      throw new RefDataException(
         404,
         `No product category found for id: ${id}`
       );
