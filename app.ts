@@ -11,6 +11,7 @@ import dosageFormRouter from "./src/Modules/dosage-form/dosage-form.router";
 import dosageFormTypeRouter from "./src/Modules/dosage-form-type/dosage-form-type.router";
 import errorMiddleware from "./src/middleware/error.Middleware";
 import unitTypeRouter from "./src/Modules/unity-type/unit-type.router";
+import { executeSQLFiles } from "./src/db";
 
 const ReferenceDataService = express();
 
@@ -31,6 +32,8 @@ ReferenceDataService.use(dosageFormRouter);
 ReferenceDataService.use(dosageFormTypeRouter);
 ReferenceDataService.use(unitTypeRouter);
 ReferenceDataService.use(errorMiddleware);
+
+executeSQLFiles(`${__dirname}/resources/sql_scripts/refdata_tables.sql`);
 
 ReferenceDataService.get(
   "/xibalba/v1/refdata/serviceInfo",
