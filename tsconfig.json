@@ -16,5 +16,5 @@
   },
   "exclude": ["node_modules", "dist"],
   "include": ["src/**/*.ts", "tests/**/*.spec.ts"],
-  "files": ["app.ts"]
+  "files": ["src/app.ts"]
 }

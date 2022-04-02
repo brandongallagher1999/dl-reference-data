@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: reference-data
+    container_name: reference-data-service
     image: node:16
     restart: always
     ports:

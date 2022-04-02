@@ -1,5 +1,5 @@
 import { Pool } from "pg";
-import ReferenceDataException from "./exceptions/RefDataException";
+import { readdirSync, readFileSync } from "fs";
 
 export const db = new Pool({
   user: "dev_user",
@@ -58,5 +58,16 @@ export async function executeQueryWithValues(
     }
   } catch (error) {
     throw error;
+  }
+}
+
+export async function initializeDb(sqlFilePath: string) {
+  try {
+    const sqlStatement = readFileSync(`${sqlFilePath}`, "utf8");
+    const result = await executeQuery(sqlStatement);
+    return true;
+  } catch (err) {
+    console.error(err.message);
+    return false;
   }
 }
