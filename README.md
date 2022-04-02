@@ -1,6 +1,6 @@
 # dl-reference-data
 
-The main goal of this project it to provice a microservice that serves static data to an inventory management and a pos service. I started this as a request from my parents since they found most commercial solutions to be a bit to complex/expensive for their usecase hence here we are.
+The main goal of this project it to provide a microservice that serves static data to an inventory management and a pos service. I started this as a request from my parents since they found most commercial solutions to be a bit to complex/expensive for their usecase hence here we are.
 
 ## Requirements
 1. Node - [Install Node](https://nodejs.org/en/download/)
