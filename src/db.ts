@@ -64,8 +64,10 @@ export async function executeQueryWithValues(
 export async function initializeDb(sqlFilePath: string) {
   try {
     const sqlStatement = readFileSync(`${sqlFilePath}`, "utf8");
-    executeQuery(sqlStatement);
+    const result = await executeQuery(sqlStatement);
+    return true;
   } catch (err) {
-    console.error(err);
+    console.error(err.message);
+    return false;
   }
 }
