@@ -61,7 +61,7 @@ export async function executeQueryWithValues(
   }
 }
 
-export async function executeSQLFiles(sqlFilePath: string) {
+export async function initializeDb(sqlFilePath: string) {
   try {
     const sqlStatement = readFileSync(`${sqlFilePath}`, "utf8");
     executeQuery(sqlStatement);
