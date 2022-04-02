@@ -1,4 +1,4 @@
-import ReferenceDataService from "./app";
+import ReferenceDataService from "./src/app";
 import { initializeDb } from "./src/db";
 
 initializeDb(`${__dirname}/resources/sql_scripts/refdata_tables.sql`).then(
