@@ -1314,7 +1314,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.21.tgz#864b987c0c68d07b4345845c3e63b75edd143644"
   integrity sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==
 
-"@types/pg@^8.6.4":
+"@types/pg@^8.6.4", "@types/pg@^8.6.5":
   version "8.6.5"
   resolved "https://registry.yarnpkg.com/@types/pg/-/pg-8.6.5.tgz#2dce9cb468a6a5e0f1296a59aea3ac75dd27b702"
   integrity sha512-tOkGtAqRVkHa/PVZicq67zuujI4Oorfglsr2IbKofDwBSysnaqSx7W1mDqFqdkGE6Fbgh+PZAl0r/BWON/mozw==
@@ -2331,6 +2331,14 @@ diff@^4.0.1:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
   integrity sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
+
+dlpos-core@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/dlpos-core/-/dlpos-core-1.0.2.tgz#0e188c8b2d4b54417926d27fdf26d3a4d33e1c7c"
+  integrity sha512-tfP6oXti0SUOmusPRfr46jQM38V37D7BpBh71St6KZZd+Z9XXDkqhYbmpSnzsQ3gMPGE5w02lrowvk1CsgUWjQ==
+  dependencies:
+    "@types/pg" "^8.6.5"
+    pg "^8.7.3"
 
 domexception@^2.0.1:
   version "2.0.1"
@@ -4268,7 +4276,7 @@ pg-types@^3.0.1:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@^8.7.1:
+pg@^8.7.1, pg@^8.7.3:
   version "8.7.3"
   resolved "https://registry.yarnpkg.com/pg/-/pg-8.7.3.tgz#8a5bdd664ca4fda4db7997ec634c6e5455b27c44"
   integrity sha512-HPmH4GH4H3AOprDJOazoIcpI49XFsHCe8xlrjHkWiapdbHK+HLtbm/GQzXYAZwmPju/kzKhjaSfMACG+8cgJcw==

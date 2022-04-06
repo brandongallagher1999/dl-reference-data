@@ -1,5 +1,5 @@
 import UnitTypeQueries from "./unit-type.queries";
-import { executeQuery, executeQueryWithValues } from "../../db";
+import { executeQuery, executeQueryWithValues } from "dlpos-core";
 
 class UnitTypeRespository {
   async findAll() {
