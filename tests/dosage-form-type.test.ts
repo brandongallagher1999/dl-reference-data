@@ -1,5 +1,5 @@
 import request from "supertest";
-import ReferenceDataService from "../app";
+import ReferenceDataService from "../src/app";
 
 describe("Given dosageFormTypes table is populated and valid ids: ", () => {
   test("/xibalba/v1/refdata/dosageFormTypes should respond with all dosageFormTypes on GET method", async () => {

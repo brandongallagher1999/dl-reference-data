@@ -1,5 +1,5 @@
 import request from "supertest";
-import ReferenceDataService from "../app";
+import ReferenceDataService from "../src/app";
 
 describe("Given productCategories table is populated and valid ids: ", () => {
   test("/xibalba/v1/refdata/productCategories should respond with all productCategories on GET method", async () => {

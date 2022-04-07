@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { ServiceResponse } from "../../types";
+import { ServiceResponse } from "dlpos-core";
 import dosageFormService from "./dosage-form.service";
 
 class DosageFormController {

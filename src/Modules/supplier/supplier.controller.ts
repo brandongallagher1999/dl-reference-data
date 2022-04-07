@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import supplierService from "./supplier.service";
-import { ServiceResponse } from "../../types";
+import { ServiceResponse } from "dlpos-core";
 
 class SupplierController {
   async findAll(response: Response, next: NextFunction) {

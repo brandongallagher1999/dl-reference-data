@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import tagService from "./tag.service";
-import { ServiceResponse } from "../../types";
+import { ServiceResponse } from "dlpos-core";
 
 class TagController {
   async findAll(response: Response, next: NextFunction) {

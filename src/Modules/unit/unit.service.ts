@@ -1,4 +1,4 @@
-import { ServiceResponse } from "../../types";
+import { ServiceResponse } from "dlpos-core";
 import { QueryResult } from "pg";
 import unitRepository from "./unit.repository";
 import RefDataException from "../../exceptions/RefDataException";

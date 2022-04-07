@@ -1,5 +1,5 @@
 import request from "supertest";
-import ReferenceDataService from "../app";
+import ReferenceDataService from "../src/app";
 
 describe("Given paymentMethods table is populated and valid ids: ", () => {
   test("/xibalba/v1/refdata/paymentMethods should respond with all paymentMethods on GET method", async () => {

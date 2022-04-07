@@ -1,5 +1,5 @@
 import request from "supertest";
-import ReferenceDataService from "../app";
+import ReferenceDataService from "../src/app";
 
 describe("Given Tags table is populated and valid ids: ", () => {
   test("/xibalba/v1/refdata/tags should respond with all tags on GET method", async () => {

@@ -1,4 +1,4 @@
-import { executeQuery, executeQueryWithValues } from "../../db";
+import { executeQuery, executeQueryWithValues } from "dlpos-core";
 import DosageFormQueries from "./dosage-form.queries";
 
 class DosageFormRepository {

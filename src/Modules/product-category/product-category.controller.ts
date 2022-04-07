@@ -1,4 +1,4 @@
-import { ServiceResponse } from "../../types";
+import { ServiceResponse } from "dlpos-core";
 import productCategoryService from "./product-category.service";
 import { Request, Response, NextFunction } from "express";
 

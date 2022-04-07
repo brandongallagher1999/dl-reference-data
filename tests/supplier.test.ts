@@ -1,5 +1,5 @@
 import request from "supertest";
-import ReferenceDataService from "../app";
+import ReferenceDataService from "../src/app";
 
 describe("Given Suppliers table is populated and valid ids: ", () => {
   test("/xibalba/v1/refdata/suppliers should respond with all suppliers on GET method", async () => {
