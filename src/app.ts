@@ -1,16 +1,16 @@
 import express from "express";
 import bodyParser from "body-parser";
-import manufacturerRouter from "./src/Modules/manufacturer/manufacturer.router";
-import supplierRouter from "./src/Modules/supplier/supplier.router";
-import paymentMethodRouter from "./src/Modules/payment-method/payment-method.router";
-import productCategoryRouter from "./src/Modules/product-category/product-category.router";
-import activeIngredientsRouter from "./src/Modules/active-ingredient/active-ingredient.router";
-import unitRouter from "./src/Modules/unit/unit.router";
-import tagRouter from "./src/Modules/tag/tag.router";
-import dosageFormRouter from "./src/Modules/dosage-form/dosage-form.router";
-import dosageFormTypeRouter from "./src/Modules/dosage-form-type/dosage-form-type.router";
-import errorMiddleware from "./src/middleware/error.Middleware";
-import unitTypeRouter from "./src/Modules/unity-type/unit-type.router";
+import manufacturerRouter from "./modules/manufacturer/manufacturer.router";
+import supplierRouter from "./modules/supplier/supplier.router";
+import paymentMethodRouter from "./modules/payment-method/payment-method.router";
+import productCategoryRouter from "./modules/product-category/product-category.router";
+import activeIngredientsRouter from "./modules/active-ingredient/active-ingredient.router";
+import unitRouter from "./modules/unit/unit.router";
+import tagRouter from "./modules/tag/tag.router";
+import dosageFormRouter from "./modules/dosage-form/dosage-form.router";
+import dosageFormTypeRouter from "./modules/dosage-form-type/dosage-form-type.router";
+import errorMiddleware from "./middleware/error.Middleware";
+import unitTypeRouter from "./modules/unity-type/unit-type.router";
 
 const ReferenceDataService = express();
 

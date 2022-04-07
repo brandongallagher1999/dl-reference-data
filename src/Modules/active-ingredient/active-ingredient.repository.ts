@@ -1,4 +1,4 @@
-import { executeQuery, executeQueryWithValues } from "../../db";
+import { executeQuery, executeQueryWithValues } from "dlpos-core";
 import ActiveIngredientQueries from "./active-ingredient.queries";
 
 class ActiveIngredientRepository {

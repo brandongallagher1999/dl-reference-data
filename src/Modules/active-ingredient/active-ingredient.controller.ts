@@ -1,4 +1,4 @@
-import { ServiceResponse } from "../../types";
+import { ServiceResponse } from "dlpos-core";
 import activeIngredientService from "./active-ingredient.service";
 import { NextFunction, Request, Response } from "express";
 

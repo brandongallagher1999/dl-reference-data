@@ -1,4 +1,4 @@
-import { ServiceResponse } from "../../types";
+import { ServiceResponse } from "dlpos-core";
 import { QueryResult } from "pg";
 import activeIngredientRepository from "./active-ingredient.repository";
 import RefDataException from "../../exceptions/RefDataException";

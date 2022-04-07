@@ -1,6 +1,6 @@
 import RefDataException from "../../exceptions/RefDataException";
 import { QueryResult } from "pg";
-import { ServiceResponse } from "../../types";
+import { ServiceResponse } from "dlpos-core";
 import dosageFormRepository from "./dosage-form.repository";
 
 class DosageFormService {

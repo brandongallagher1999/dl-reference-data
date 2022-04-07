@@ -1,4 +1,4 @@
-import { executeQuery, executeQueryWithValues } from "../../db";
+import { executeQuery, executeQueryWithValues } from "dlpos-core";
 import ProductCategoryQueries from "./product-category.queries";
 
 class ProductCategoryRepository {

@@ -1,5 +1,5 @@
 import request from "supertest";
-import ReferenceDataService from "../app";
+import ReferenceDataService from "../src/app";
 describe("Given Units table is populated and valid ids: ", () => {
   test("/xibalba/v1/refdata/units should respond with all units on GET method", async () => {
     const response = await request(ReferenceDataService).get(

@@ -1,5 +1,5 @@
 import request from "supertest";
-import ReferenceDataService from "../app";
+import ReferenceDataService from "../src/app";
 
 describe("Given activeIngredients table is populated and valid ids: ", () => {
   test("/xibalba/v1/refdata/activeIngredients should respond with all activeIngredients on GET method", async () => {

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import unitTypeService from "./unit-type.service";
-import { ServiceResponse } from "../../types";
+import { ServiceResponse } from "dlpos-core";
 
 class DosageFormTypeController {
   async findAll(response: Response, next: NextFunction) {
