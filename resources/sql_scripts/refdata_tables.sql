@@ -108,3 +108,11 @@ CREATE TABLE IF NOT EXISTS public.refdata_tags (
 	CONSTRAINT refdata_tags_name_un UNIQUE (name),
 	CONSTRAINT refdata_tags_pk PRIMARY KEY (id)
 );
+
+-- Inventory Update Reasons
+CREATE TABLE IF NOT EXISTS public.refdata_inventory_update_reasons (
+	id int4 NOT NULL DEFAULT nextval('inventory_update_reasons_id_seq'::regclass),
+	reason varchar NOT NULL,
+	CONSTRAINT inventory_update_reason_pk PRIMARY KEY (id),
+	CONSTRAINT refdata_inventory_update_reasons_un UNIQUE (reason)
+);
