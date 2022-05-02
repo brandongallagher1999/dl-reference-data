@@ -1,4 +1,4 @@
-class RefDataExcetpion extends Error {
+class RefDataException extends Error {
   status: number;
   message: string;
   constructor(status: number, message: string) {
@@ -8,4 +8,4 @@ class RefDataExcetpion extends Error {
   }
 }
 
-export default RefDataExcetpion;
+export default RefDataException;

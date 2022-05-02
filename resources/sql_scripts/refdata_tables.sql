@@ -111,8 +111,22 @@ CREATE TABLE IF NOT EXISTS public.refdata_tags (
 
 -- Inventory Update Reasons
 CREATE TABLE IF NOT EXISTS public.refdata_inventory_update_reasons (
-	id int4 NOT NULL DEFAULT nextval('inventory_update_reasons_id_seq'::regclass),
+	id serial4 NOT NULL,
 	reason varchar NOT NULL,
 	CONSTRAINT inventory_update_reason_pk PRIMARY KEY (id),
 	CONSTRAINT refdata_inventory_update_reasons_un UNIQUE (reason)
+);
+
+-- Refdata Change History Table
+CREATE TABLE IF NOT EXISTS public.refdata_update_history (
+	id serial4 NOT NULL,
+	instruction varchar NOT NULL,
+	table_name varchar NOT NULL,
+	refdata_id int4 NOT NULL,
+	user_id int4 NOT NULL,
+	update_timestamp timestamptz NOT NULL,
+	before_state json NOT NULL,
+	after_state json NOT NULL,
+	CONSTRAINT refdata_update_history_table_pk PRIMARY KEY (id),
+	CONSTRAINT  refdata_update_history_table_un UNIQUE (table_name, refdata_id)
 );
