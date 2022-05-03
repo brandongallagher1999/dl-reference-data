@@ -119,10 +119,10 @@ CREATE TABLE IF NOT EXISTS public.refdata_inventory_update_reasons (
 
 -- Refdata Change History Table
 CREATE TABLE IF NOT EXISTS public.refdata_update_history (
-	id serial4 NOT NULL,
+	id serial8 NOT NULL,
 	instruction varchar NOT NULL,
 	table_name varchar NOT NULL,
-	refdata_id int4 NOT NULL,
+	refData_id int4 NOT NULL,
 	user_id int4 NOT NULL,
 	update_timestamp timestamptz NOT NULL,
 	before_state json NOT NULL,
