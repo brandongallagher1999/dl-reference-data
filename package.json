@@ -18,7 +18,7 @@
     "@types/pg": "^8.6.4",
     "body-parser": "^1.19.1",
     "class-validator": "^0.13.2",
-    "dlpos-core": "^1.0.2",
+    "dlpos-core": "^2.0.0",
     "express": "^4.17.2",
     "pg": "^8.7.1",
     "pg-types": "^3.0.1",

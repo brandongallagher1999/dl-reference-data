@@ -2332,10 +2332,10 @@ diff@^4.0.1:
   resolved "https://registry.yarnpkg.com/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
   integrity sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
 
-dlpos-core@^1.0.2:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/dlpos-core/-/dlpos-core-1.0.4.tgz#443004ebc9b02878a253d3ba51f2deafe228abde"
-  integrity sha512-QQEM5w3gRllxglHq6nCOYkA80bSm19X5rHn2UrQMvbYw+/2Y+z/RaoMpntKsLThkw1gmDzwS931rFuoqCbj3Aw==
+dlpos-core@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/dlpos-core/-/dlpos-core-2.0.1.tgz#56b6c9d3588bdd76330b423d91df4307ebd551d8"
+  integrity sha512-UBxHjz7jRfgM7H1cwEAxY3OP7p/Y6vzm2GLbNeadJJfeVtFe2XfmZPXKWb+JrelBLlYwyDU4PmeF7mVnJdExDw==
   dependencies:
     "@types/pg" "^8.6.5"
     pg "^8.7.3"
