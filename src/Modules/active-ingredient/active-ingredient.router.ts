@@ -17,4 +17,18 @@ activeIngredientsRouter.get(
   }
 );
 
+activeIngredientsRouter.post(
+  "/xibalba/v1/refdata/activeIngredients",
+  (request: Request, response: Response, next: NextFunction) => {
+    activeIngredientController.create(request, response, next);
+  }
+);
+
+activeIngredientsRouter.put(
+  "/xibalba/v1/refdata/activeIngredients",
+  (request: Request, response: Response, next: NextFunction) => {
+    activeIngredientController.update(request, response, next);
+  }
+);
+
 export default activeIngredientsRouter;

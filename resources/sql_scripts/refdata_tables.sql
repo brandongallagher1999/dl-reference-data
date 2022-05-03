@@ -124,9 +124,7 @@ CREATE TABLE IF NOT EXISTS public.refdata_update_history (
 	table_name varchar NOT NULL,
 	refdata_id int4 NOT NULL,
 	user_id int4 NOT NULL,
+	data json NOT NULL,
 	update_timestamp timestamptz NOT NULL,
-	before_state json NOT NULL,
-	after_state json NOT NULL,
 	CONSTRAINT refdata_update_history_table_pk PRIMARY KEY (id),
-	CONSTRAINT  refdata_update_history_table_un UNIQUE (table_name, refdata_id)
 );
