@@ -11,6 +11,7 @@ import dosageFormRouter from "./modules/dosage-form/dosage-form.router";
 import dosageFormTypeRouter from "./modules/dosage-form-type/dosage-form-type.router";
 import errorMiddleware from "./middleware/error.Middleware";
 import unitTypeRouter from "./modules/unity-type/unit-type.router";
+import refDataUpdateHistoryRouter from "./modules/update-history/update-history-router";
 
 const ReferenceDataService = express();
 
@@ -30,6 +31,7 @@ ReferenceDataService.use(tagRouter);
 ReferenceDataService.use(dosageFormRouter);
 ReferenceDataService.use(dosageFormTypeRouter);
 ReferenceDataService.use(unitTypeRouter);
+ReferenceDataService.use(refDataUpdateHistoryRouter);
 ReferenceDataService.use(errorMiddleware);
 
 ReferenceDataService.get(

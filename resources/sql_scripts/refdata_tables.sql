@@ -108,3 +108,23 @@ CREATE TABLE IF NOT EXISTS public.refdata_tags (
 	CONSTRAINT refdata_tags_name_un UNIQUE (name),
 	CONSTRAINT refdata_tags_pk PRIMARY KEY (id)
 );
+
+-- Inventory Update Reasons
+CREATE TABLE IF NOT EXISTS public.refdata_inventory_update_reasons (
+	id serial4 NOT NULL,
+	reason varchar NOT NULL,
+	CONSTRAINT inventory_update_reason_pk PRIMARY KEY (id),
+	CONSTRAINT refdata_inventory_update_reasons_un UNIQUE (reason)
+);
+
+-- Refdata Change History Table
+CREATE TABLE IF NOT EXISTS public.refdata_update_history (
+	id serial8 NOT NULL,
+	instruction varchar NOT NULL,
+	table_name varchar NOT NULL,
+	refdata_id int4 NOT NULL,
+	user_id int4 NOT NULL,
+	data json NOT NULL,
+	update_timestamp timestamptz NOT NULL,
+	CONSTRAINT refdata_update_history_table_pk PRIMARY KEY (id),
+);

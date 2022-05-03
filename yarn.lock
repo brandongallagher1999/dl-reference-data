@@ -1305,9 +1305,9 @@
   integrity sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==
 
 "@types/node@*":
-  version "17.0.23"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.23.tgz#3b41a6e643589ac6442bdbd7a4a3ded62f33f7da"
-  integrity sha512-UxDxWn7dl97rKVeVS61vErvw086aCYhDLyvRQZ5Rk65rZKepaFdm53GeqXaKBuOhED4e9uWq34IC3TdSdJJ2Gw==
+  version "17.0.31"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.31.tgz#a5bb84ecfa27eec5e1c802c6bbf8139bdb163a5d"
+  integrity sha512-AR0x5HbXGqkEx9CadRH3EBYx/VkiUgZIhP4wvPn/+5KIsgpNoyFaRlVe0Zlx9gRtg8fA06a9tskE2MSN7TcG4Q==
 
 "@types/node@^17.0.21":
   version "17.0.21"
@@ -2332,10 +2332,10 @@ diff@^4.0.1:
   resolved "https://registry.yarnpkg.com/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
   integrity sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
 
-dlpos-core@^1.0.2:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/dlpos-core/-/dlpos-core-1.0.3.tgz#38fe7ebad9958ca42ed7312fdf3bd4384e529eca"
-  integrity sha512-AQHbRLP9uBplwrVWuOTxYHqfO2JpTOJH/iRMFXrh5v4XertXpgTEQqYb8a2PiHgC31C0SoaVF3j1GGu9PH9FXg==
+dlpos-core@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/dlpos-core/-/dlpos-core-2.0.1.tgz#56b6c9d3588bdd76330b423d91df4307ebd551d8"
+  integrity sha512-UBxHjz7jRfgM7H1cwEAxY3OP7p/Y6vzm2GLbNeadJJfeVtFe2XfmZPXKWb+JrelBLlYwyDU4PmeF7mVnJdExDw==
   dependencies:
     "@types/pg" "^8.6.5"
     pg "^8.7.3"
