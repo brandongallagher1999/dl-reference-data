@@ -1,9 +1,9 @@
 import express, { Request, Response, NextFunction } from "express";
 import referenceDataUpdateHistoryController from "./update-history.controller";
 
-const unitRouter = express.Router();
+const refDataUpdateHistoryRouter = express.Router();
 
-unitRouter.get(
+refDataUpdateHistoryRouter.get(
   "/xibalba/v1/refdata/updateHistory",
   (request: Request, response: Response, next: NextFunction) => {
     referenceDataUpdateHistoryController.getUpdateHistory(
@@ -14,4 +14,4 @@ unitRouter.get(
   }
 );
 
-export default unitRouter;
+export default refDataUpdateHistoryRouter;

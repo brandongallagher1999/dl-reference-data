@@ -10,10 +10,7 @@ class ReferenceDataUpdateHistoryController {
   ) {
     try {
       let serviceResponse: ServiceResponse =
-        await referenceDataUpdateHistoryService.getUpdateHistory(
-          request.query.tableName.toString(),
-          request.query.refDataId.toString()
-        );
+        await referenceDataUpdateHistoryService.getUpdateHistory(request.query);
       return response.status(serviceResponse.status).send(serviceResponse);
     } catch (error) {
       next(error);
