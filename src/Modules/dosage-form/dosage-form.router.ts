@@ -18,7 +18,7 @@ dosageFormRouter.get(
 );
 
 dosageFormRouter.get(
-  "/xibalba/v1/refdata/dosageForms/dosageForms/:dosageFormTypeId",
+  "/xibalba/v1/refdata/dosageForms/dosageFormType/:dosageFormTypeId",
   (request: Request, response: Response, next: NextFunction) => {
     dosageFormController.findByDosageFormsByTypeId(request, response, next);
   }
