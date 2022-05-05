@@ -1,0 +1,3 @@
+class DosageFormValidator {
+  static validateCreateRequest() {}
+}
