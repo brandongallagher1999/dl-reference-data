@@ -1,5 +1,10 @@
 import request from "supertest";
 import ReferenceDataService from "../src/app";
+import { createConnectionPool } from "dlpos-core";
+
+beforeAll(() => {
+  createConnectionPool("dev_user", "localhost", "dl_staging", "password", 5432);
+});
 
 describe("Given dosageForms table is populated and valid ids: ", () => {
   test("/xibalba/v1/refdata/dosageForms should respond with all dosageForms on GET method", async () => {
@@ -27,7 +32,7 @@ describe("Given dosageForms table is populated and valid ids: ", () => {
   });
 });
 
-describe("Given dosageForms table is populated and non existend ids or invalid ids: ", () => {
+describe("Given dosageForms table is populated and non existed ids or invalid ids: ", () => {
   test("/xibalba/v1/refdata/dosageForms/[non existent id] should respond 404 on GET method", async () => {
     const response = await request(ReferenceDataService).get(
       "/xibalba/v1/refdata/dosageForms/78"

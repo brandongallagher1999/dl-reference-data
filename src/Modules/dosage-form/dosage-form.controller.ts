@@ -14,9 +14,8 @@ class DosageFormController {
 
   async findById(request: Request, response: Response, next: NextFunction) {
     try {
-      const id = request.params.id;
       let serviceResponse: ServiceResponse = await dosageFormService.findById(
-        id
+        request.params.id
       );
       return response.status(serviceResponse.status).send(serviceResponse);
     } catch (error) {
@@ -24,15 +23,40 @@ class DosageFormController {
     }
   }
 
-  async findByDosageFormTypeId(
+  async findByDosageFormsByTypeId(
     request: Request,
     response: Response,
     next: NextFunction
   ) {
     try {
-      const dosageFormTypeId = request.params.dosageFormTypeId;
       let serviceResponse: ServiceResponse =
-        await dosageFormService.findByDosageFormTypeId(dosageFormTypeId);
+        await dosageFormService.findByDosageFormsByTypeId(
+          request.params.dosageFormTypeId
+        );
+      return response.status(serviceResponse.status).send(serviceResponse);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async create(request: Request, response: Response, next: NextFunction) {
+    try {
+      let serviceResponse: ServiceResponse = await dosageFormService.create(
+        request.body,
+        request.query
+      );
+      return response.status(serviceResponse.status).send(serviceResponse);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async update(request: Request, response: Response, next: NextFunction) {
+    try {
+      let serviceResponse: ServiceResponse = await dosageFormService.update(
+        request.body,
+        request.query
+      );
       return response.status(serviceResponse.status).send(serviceResponse);
     } catch (error) {
       next(error);

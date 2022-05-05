@@ -20,7 +20,21 @@ dosageFormRouter.get(
 dosageFormRouter.get(
   "/xibalba/v1/refdata/dosageForms/dosageFormType/:dosageFormTypeId",
   (request: Request, response: Response, next: NextFunction) => {
-    dosageFormController.findByDosageFormTypeId(request, response, next);
+    dosageFormController.findByDosageFormsByTypeId(request, response, next);
+  }
+);
+
+dosageFormRouter.post(
+  "/xibalba/v1/refdata/dosageForms",
+  (request: Request, response: Response, next: NextFunction) => {
+    dosageFormController.create(request, response, next);
+  }
+);
+
+dosageFormRouter.put(
+  "/xibalba/v1/refdata/dosageForms",
+  (request: Request, response: Response, next: NextFunction) => {
+    dosageFormController.update(request, response, next);
   }
 );
 
