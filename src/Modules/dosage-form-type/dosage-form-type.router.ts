@@ -16,4 +16,11 @@ dosageFormTypeRouter.get(
   }
 );
 
+dosageFormTypeRouter.post(
+  "/xibalba/v1/refdata/dosageFormTypes",
+  (request: Request, response: Response, next: NextFunction) => {
+    dosageFormTypeController.create(request, response, next);
+  }
+);
+
 export default dosageFormTypeRouter;
