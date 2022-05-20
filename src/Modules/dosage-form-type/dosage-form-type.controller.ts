@@ -23,6 +23,28 @@ class DosageFormTypeController {
       next(error);
     }
   }
+
+  async create(request: Request, response: Response, next: NextFunction) {
+    try {
+      let serviceResponse: ServiceResponse = await dosageFormTypeService.create(
+        request.body
+      );
+      return response.status(serviceResponse.status).send(serviceResponse);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async update(request: Request, response: Response, next: NextFunction) {
+    try {
+      let serviceResponse: ServiceResponse = await dosageFormTypeService.update(
+        request.body
+      );
+      return response.status(serviceResponse.status).send(serviceResponse);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 export default new DosageFormTypeController();

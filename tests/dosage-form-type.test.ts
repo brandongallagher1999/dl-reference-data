@@ -1,5 +1,10 @@
+import { createConnectionPool } from "dlpos-core";
 import request from "supertest";
 import ReferenceDataService from "../src/app";
+
+beforeAll(() => {
+  createConnectionPool("dev_user", "localhost", "dl_staging", "password", 5432);
+});
 
 describe("Given dosageFormTypes table is populated and valid ids: ", () => {
   test("/xibalba/v1/refdata/dosageFormTypes should respond with all dosageFormTypes on GET method", async () => {
@@ -15,11 +20,11 @@ describe("Given dosageFormTypes table is populated and valid ids: ", () => {
       "/xibalba/v1/refdata/dosageFormTypes/1"
     );
     expect(response.statusCode).toBe(200);
-    expect(response.body.data.id).toBe(1);
+    expect(response.body.data[0].id).toBe(1);
   });
 });
 
-describe("Given dosageFormTypes table is populated and non existend ids or invalid ids: ", () => {
+describe("Given dosageFormTypes table is populated and non existent ids or invalid ids: ", () => {
   test("/xibalba/v1/refdata/dosageFormTypes/[non existent id] should respond 404 on GET method", async () => {
     const response = await request(ReferenceDataService).get(
       "/xibalba/v1/refdata/dosageFormTypes/78"
