@@ -1,7 +1,7 @@
 import DosageFormType from "./dosage-form-type.dto";
 
 class DosageFormTypeServiceReadRequest {
-  correlationId: string;
+  correlationId?: string;
   dosageFormTypeId?: number;
 
   static fromJson(json: object) {
@@ -10,7 +10,7 @@ class DosageFormTypeServiceReadRequest {
 }
 
 class DosageFormTypeServiceWriteRequest {
-  correlationId: string;
+  correlationId?: string;
   userId: number;
   dosageFormType: DosageFormType;
 

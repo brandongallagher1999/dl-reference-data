@@ -32,7 +32,20 @@ class DosageFormRepository {
     );
   }
 
-  async update(updatedDosageFormType: DosageFormType) {}
+  async update(updatedDosageFormType: DosageFormType, userId: number) {
+    return executeDependentQueriesWithValues(
+      DosageFormQueries.UPDATE,
+      [updatedDosageFormType.name, updatedDosageFormType.id],
+      ReferenceDataUpdateHistoryQueries.CREATE_UPDATE_HISTORY_ENTRY,
+      [
+        Instruction.UPDATE,
+        DosageFormQueries.TABLE_NAME,
+        userId,
+        new Date(),
+        updatedDosageFormType,
+      ]
+    );
+  }
 }
 
 export default new DosageFormRepository();

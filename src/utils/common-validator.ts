@@ -21,6 +21,20 @@ class CommonValidator {
     return validationResult;
   }
 
+  static validateNumber(maybeNumber: string) {
+    let validationResult: CommonValidatorResult = {
+      isValid: false,
+    };
+    if (Number.isNaN(parseInt(maybeNumber))) {
+      validationResult.error = "is not a valid number";
+    } else {
+      validationResult.isValid = true;
+      validationResult.validValue = maybeNumber;
+    }
+
+    return validationResult;
+  }
+
   static isBigInt(maybeBigInt: string) {
     let validationResult: CommonValidatorResult = {
       isValid: false,
