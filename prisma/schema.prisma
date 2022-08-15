@@ -1,0 +1,98 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Tag {
+  id Int @id @default(autoincrement())
+  name String @unique
+  @@map("tags")
+}
+
+model Supplier {
+  id Int @id
+  name String @unique
+   @@map("suppliers")
+}
+
+model UnitType {
+  id Int @id @default(autoincrement())
+  name String @unique
+   @@map("unit_types")
+   units Unit[]
+}
+
+model Unit {
+  id Int @id
+  longName String @unique @map("long_name")
+  shortName String @unique @map("short_name")
+  unitType UnitType @relation(fields: [unitTypeId], references: [id])
+  unitTypeId Int @map("unit_type_id")
+  @@map("units")
+}
+
+model ActiveIngredient {
+  id Int @id @default(autoincrement())
+  name String @unique
+  @@map("active_ingredients")
+}
+
+model DosageFormType {
+  id Int @id @default(autoincrement())
+  name String @unique
+  dosageForms DosageForm[]
+  @@map("dosage_form_types")
+}
+
+model DosageForm {
+  id Int @id @default(autoincrement())
+  name String @unique
+  dosageFormType DosageFormType @relation(fields: [dosageFormTypeId], references: [id])
+  dosageFormTypeId Int @map("dosage_form_type_id")
+  @@map("dosage_forms")
+}
+
+model Manufacturer {
+  id Int @id @default(autoincrement())
+  longName String @unique @map("long_name")
+  shortName String @unique @map("short_name")
+  @@map("manufacturers")
+}
+
+model PaymentMethod {
+  id Int @id @default(autoincrement())
+  longName String @unique @map("long_name")
+  shortName String @unique @map("short_name")
+  @@map("payment_methods")
+}
+
+model ProductCategory {
+  id Int @id @default(autoincrement())
+  name String @unique
+  @@map("product_categories")
+}
+
+model UpdateReason {
+  id Int @id @default(autoincrement())
+  name String @unique
+  @@map("update_reasons")
+}
+
+model UpdateHistoryEntry {
+  id BigInt @id @default(autoincrement())
+  instruction String
+  tableName String @map("table_name")
+  dataId Int @map("data_id")
+  userId Int @map("user_id")
+  data Json
+  createdAt DateTime @map("created_at")
+  @@map("update_history")
+}

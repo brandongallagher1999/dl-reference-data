@@ -7,10 +7,6 @@ class RefDataException extends Error {
     this.status = status;
     this.message = message;
   }
-
-  addErrors(errors: string[]) {
-    this.errors = errors;
-  }
 }
 
 export default RefDataException;
