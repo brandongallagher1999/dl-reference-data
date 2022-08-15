@@ -1,18 +1,18 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "title": "New Tag Request",
-    "description": "Request to create a new tag",
-    "type": "object",
-    "properties": {
-        "name": {
-            "description": "name of the new tag",
-            "type": "string"
-        },
-        "userId": {
-            "description": "user that sent the new tag request",
-            "type": "number",
-            "exclusiveMinimum": 0
-        }
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "New Tag Request",
+  "description": "Request to create a new tag",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "name of the new tag",
+      "type": "string"
     },
-    "required": ["name", "userId"]
+    "userId": {
+      "description": "user that sent the new tag request",
+      "type": "number",
+      "exclusiveMinimum": 0
+    }
+  },
+  "required": ["name", "userId"]
 }

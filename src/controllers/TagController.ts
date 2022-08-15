@@ -1,49 +1,86 @@
-import { NextFunction, Request, Response } from "express";
-import tagService from "../services/TagService";
-import { ServiceResponse } from "dlpos-core";
-import IController from "../controllers/IController";
-import { ParamsDictionary } from "express-serve-static-core";
-import { ParsedQs } from "qs";
+import { NextFunction, Request, Response } from 'express';
+import tagService from '../services/TagService';
+import IController from '../controllers/IController';
 
+/**
+ *
+ */
 class TagController implements IController {
+  /**
+   *
+   * @param { Response } response
+   * @param { NextFunction } next
+   * @return { Response | undefined }
+   */
   async findAll(response: Response, next: NextFunction) {
     try {
-      let serviceResponse: ServiceResponse = await tagService.findAll();
+      const serviceResponse = await tagService.findAll();
       return response.status(serviceResponse.status).send(serviceResponse);
     } catch (error) {
       next(error);
     }
   }
+  /**
+   *
+   * @param { Request } request
+   * @param { Response } response
+   * @param { NextFunction } next
+   * @return { Response | undefined }
+   */
   async findById(request: Request, response: Response, next: NextFunction) {
     const id = request.params.id;
     try {
-      let serviceResponse: ServiceResponse = await tagService.findById(id);
+      const serviceResponse = await tagService.findById(id);
       return response.status(serviceResponse.status).send(serviceResponse);
     } catch (error) {
       next(error);
     }
   }
-  async create(request: Request, response: Response, next: NextFunction): Promise<any> {
+  /**
+   *
+   * @param { Request } request
+   * @param { Response } response
+   * @param { NextFunction } next
+   * @return { Response | undefined }
+   */
+  async create(request: Request, response: Response, next: NextFunction) {
     try {
-      let serviceResponse = await tagService.create(request.body);
+      const serviceResponse = await tagService.create(request.body);
       return response.status(serviceResponse.status).send(serviceResponse);
     } catch (error) {
       next(error);
     }
   }
-  async update(request: Request, response: Response, next: NextFunction): Promise<any> {
+  /**
+   *
+   * @param { Request } request
+   * @param { Response } response
+   * @param { NextFunction } next
+   * @return { Response | undefined }
+   */
+  async update(request: Request, response: Response, next: NextFunction) {
     try {
-      let serviceResponse = await tagService.update(request.body);
+      const serviceResponse = await tagService.update(request.body);
       return response.status(serviceResponse.status).send(serviceResponse);
     } catch (error) {
       next(error);
     }
   }
-
-  async getUpdateHistory(request: Request, response: Response, next: NextFunction): Promise<any> {
+  /**
+   *
+   * @param { Request } request
+   * @param { Response } response
+   * @param { NextFunction } next
+   * @return { Response | undefined }
+   */
+  async getUpdateHistory(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ) {
     const id = request.params.id;
     try {
-      let serviceResponse: ServiceResponse = await tagService.getUpdateHistory(id);
+      const serviceResponse = await tagService.getUpdateHistory(id);
       return response.status(serviceResponse.status).send(serviceResponse);
     } catch (error) {
       next(error);
