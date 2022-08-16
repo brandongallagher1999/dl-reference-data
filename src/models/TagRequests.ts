@@ -1,4 +1,4 @@
-import IRefDataRequest from './IModel';
+import IRefDataRequest from "./IRefDataRequest";
 
 /**
  * Class Representing a Request to Update a Tag

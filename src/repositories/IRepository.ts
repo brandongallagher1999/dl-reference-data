@@ -1,10 +1,10 @@
-import IModel from '../models/IModel';
+import IRefDataRequest from "../models/IRefDataRequest";
 
 interface IRepository {
   findAll(): Promise<any[]>;
   findById(id: number): Promise<any | null>;
-  create(newObject: IModel): Promise<any>;
-  update(updatedObject: IModel): Promise<any>;
+  create(newObject: IRefDataRequest): Promise<any>;
+  update(updatedObject: IRefDataRequest): Promise<any>;
   getUpdateHistory(id: number): Promise<any[]>;
 }
 

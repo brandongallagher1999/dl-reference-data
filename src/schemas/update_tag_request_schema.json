@@ -1,23 +1,26 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "title": "Update Tag Request",
-  "description": "Request to update a tag",
+  "title": "Update tag Request",
+  "description": "Request to update tag",
   "type": "object",
   "properties": {
     "id": {
-      "description": "id of the tag entry to update",
-      "type": "number",
-      "exclusiveMinimum": 0
+      "description": "id of the tag to update",
+      "type": "integer"
     },
     "name": {
-      "description": "name of the new tag",
+      "description": "new name for the tag",
       "type": "string"
     },
     "userId": {
-      "description": "user that sent the new tag request",
-      "type": "number",
+      "description": "id of the user making the request",
+      "type": "integer",
       "exclusiveMinimum": 0
     }
   },
-  "required": ["id", "name", "userId"]
+  "required": [
+    "id",
+    "name",
+    "userId"
+  ]
 }

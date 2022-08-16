@@ -1,7 +1,7 @@
-import Ajv from 'ajv';
-import * as newTagRequestSchema from '../schemas/new_tag_request_schema.json';
-import * as updateTagRequestSchema from '../schemas/update_tag_request_schema.json';
-import { NewTagRequest, UpdateTagRequest } from '../models/TagRequests';
+import Ajv from "ajv";
+import * as newTagRequestSchema from "../schemas/new_tag_request_schema.json";
+import * as updateTagRequestSchema from "../schemas/update_tag_request_schema.json";
+import { NewTagRequest, UpdateTagRequest } from "../models/TagRequests";
 
 const ajv = new Ajv({ allErrors: true });
 

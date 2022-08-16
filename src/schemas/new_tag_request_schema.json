@@ -14,5 +14,8 @@
       "exclusiveMinimum": 0
     }
   },
-  "required": ["name", "userId"]
+  "required": [
+    "name",
+    "userId"
+  ]
 }

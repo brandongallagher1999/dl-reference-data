@@ -1,8 +1,8 @@
-import { Tag, UpdateHistoryEntry } from '@prisma/client';
-import prisma from '../client';
-import { NewTagRequest, UpdateTagRequest } from '../models/TagRequests';
-import { CrudInstruction } from '../types';
-import IRepository from './IRepository';
+import { Tag, UpdateHistoryEntry } from "@prisma/client";
+import prisma from "../client";
+import { NewTagRequest, UpdateTagRequest } from "../models/TagRequests";
+import { CrudInstruction } from "../types";
+import IRepository from "./IRepository";
 
 /**
  * @classdesc Db Operations for Tags
@@ -32,8 +32,8 @@ class TagRepository implements IRepository {
     return prisma.$transaction(async (prisma) => {
       const savedTag = await prisma.tag.create({
         data: {
-          name: newTag.name
-        }
+          name: newTag.name,
+        },
       });
 
       await prisma.updateHistoryEntry.create({
@@ -41,10 +41,10 @@ class TagRepository implements IRepository {
           userId: newTag.userId,
           dataId: savedTag.id,
           instruction: CrudInstruction.CREATE,
-          tableName: 'tags',
+          tableName: "tags",
           data: JSON.stringify(newTag),
-          createdAt: new Date()
-        }
+          createdAt: new Date(),
+        },
       });
 
       return savedTag;
@@ -59,21 +59,21 @@ class TagRepository implements IRepository {
     return prisma.$transaction(async (prisma) => {
       const savedTag = await prisma.tag.update({
         where: {
-          id: updatedTag.id
+          id: updatedTag.id,
         },
         data: {
-          name: updatedTag.name
-        }
+          name: updatedTag.name,
+        },
       });
       await prisma.updateHistoryEntry.create({
         data: {
           userId: updatedTag.userId,
           dataId: savedTag.id,
           instruction: CrudInstruction.UPDATE,
-          tableName: 'tags',
+          tableName: "tags",
           data: JSON.stringify(updatedTag),
-          createdAt: new Date()
-        }
+          createdAt: new Date(),
+        },
       });
 
       return savedTag;
@@ -88,8 +88,8 @@ class TagRepository implements IRepository {
     return prisma.updateHistoryEntry.findMany({
       where: {
         dataId: id,
-        tableName: 'tags'
-      }
+        tableName: "tags",
+      },
     });
   }
 }
