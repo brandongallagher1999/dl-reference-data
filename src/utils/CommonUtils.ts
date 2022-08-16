@@ -66,7 +66,6 @@ export function formatUpdateHistory(
     }
   });
 
-  console.log(JSON.stringify(bigIntSerializedUpdateHistory));
   return bigIntSerializedUpdateHistory;
 }
 /**

@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import HttpException from '../exceptions/RefDataException';
+import { logger } from '../logger';
 
 function refDataErrorMiddleware(
   error: HttpException,
@@ -7,7 +8,7 @@ function refDataErrorMiddleware(
   response: Response,
   next: NextFunction
 ) {
-  console.error(error);
+  logger.error(error);
   const status = error.status || 500;
   const message = error.message || 'Sorry something went boom on our end!';
   const errors = error?.errors;

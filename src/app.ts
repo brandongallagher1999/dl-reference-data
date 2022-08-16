@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import tagRouter from './routes/TagRouter';
 import activeIngredientRouter from './routes/ActiveIngredientRouter';
+import dosageFormTypeRouter from './routes/DosageFormTypeRouter';
 import RefDataErrorMiddleware from './middleware/RefDataErrorMiddleware';
 
 const SageService = express();
@@ -15,6 +16,7 @@ SageService.use(
 
 SageService.use(tagRouter);
 SageService.use(activeIngredientRouter);
+SageService.use(dosageFormTypeRouter);
 
 //error handling middleware
 SageService.use(RefDataErrorMiddleware);

@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "New Dosage Form Type Request",
+    "description": "Request to create a new dosage form type",
+    "type": "object",
+    "properties": {
+        "name": {
+            "description": "name of the new dosage form type",
+            "type": "string"
+        },
+        "userId": {
+            "description": "user that sent the new dosage form type request",
+            "type": "number",
+            "exclusiveMinimum": 0
+        }
+    },
+    "required": [
+        "name",
+        "userId"
+    ]
+}
