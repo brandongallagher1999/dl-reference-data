@@ -1,4 +1,4 @@
-import IRefDataRequest from "../models/IRefDataRequest";
+import IRefDataRequest from '../models/IRefDataRequest';
 
 interface IRepository {
   findAll(): Promise<any[]>;

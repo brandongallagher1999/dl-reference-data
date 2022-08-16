@@ -1,6 +1,6 @@
-import { Prisma, UpdateHistoryEntry } from ".prisma/client";
-import { ErrorObject } from "ajv";
-import { NumberValidationResult } from "../types";
+import { Prisma, UpdateHistoryEntry } from '.prisma/client';
+import { ErrorObject } from 'ajv';
+import { NumberValidationResult } from '../types';
 /**
  *
  * @param { ErrorObject [] } validationErrors
@@ -13,7 +13,7 @@ export function extractErrorMessagesFromValidationResult(
   if (validationErrors != null || validationErrors != undefined) {
     validationErrors.forEach((error) => {
       if (error.message != undefined || error.message != null) {
-        if (error.instancePath != "") {
+        if (error.instancePath != '') {
           errorMessages.push(
             `${error.instancePath.slice(1)} : ${error.message}`
           );
@@ -34,7 +34,7 @@ export function extractErrorMessagesFromValidationResult(
 export function bigIntSerializer(json: object) {
   return JSON.parse(
     JSON.stringify(json, (key, value) =>
-      typeof value === "bigint" ? value.toString() : value
+      typeof value === 'bigint' ? value.toString() : value
     )
   );
 }
@@ -44,7 +44,7 @@ export function bigIntSerializer(json: object) {
  * @return { Prisma.JsonValue }
  */
 export function cleanDbJson(entry: Prisma.JsonValue) {
-  const cleanedJson = entry?.toString().replace("\\", "");
+  const cleanedJson = entry?.toString().replace('\\', '');
   return cleanedJson as Prisma.JsonValue;
 }
 

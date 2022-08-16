@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response } from "express";
-import tagService from "../services/TagService";
-import IController from "../controllers/IController";
+import { NextFunction, Request, Response } from 'express';
+import tagService from '../services/TagService';
+import IController from '../controllers/IController';
 
 /**
  *

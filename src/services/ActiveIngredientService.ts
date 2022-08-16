@@ -1,11 +1,11 @@
 import { ServiceResponse } from 'dlpos-core';
-import TagRepository from '../repositories/TagRepository';
+import ActiveIngredientRepository from '../repositories/ActiveIngredientRepository';
 import IService from './IService';
 import RefDataException from '../exceptions/RefDataException';
-import { Tag, UpdateHistoryEntry } from '@prisma/client';
+import { ActiveIngredient, UpdateHistoryEntry } from '@prisma/client';
 import {
-  validateNewTagRequest,
-  validateUpdateTagRequest
+  validateNewActiveIngredientRequest,
+  validateUpdateActiveIngredientRequest
 } from '../utils/RequestValidator';
 import {
   extractErrorMessagesFromValidationResult,
@@ -13,9 +13,9 @@ import {
   safeParseInt
 } from '../utils/CommonUtils';
 
-class TagService implements IService {
+class ActiveIngredientService implements IService {
   async findAll(): Promise<ServiceResponse> {
-    const queryResult = await TagRepository.findAll();
+    const queryResult = await ActiveIngredientRepository.findAll();
     const serviceResponse: ServiceResponse = {
       status: 200,
       itemCount: queryResult.length,
@@ -29,11 +29,13 @@ class TagService implements IService {
     if (!validatedId.isValid) {
       throw new RefDataException(400, 'id provided is not a valid number');
     }
-    const queryResult: Tag | null = await TagRepository.findById(
-      validatedId.value
-    );
+    const queryResult: ActiveIngredient | null =
+      await ActiveIngredientRepository.findById(validatedId.value);
     if (queryResult === null) {
-      throw new RefDataException(404, `No tag found with id: ${id}`);
+      throw new RefDataException(
+        404,
+        `No Active Ingredient found with id: ${id}`
+      );
     } else {
       const serviceResponse: ServiceResponse = {
         status: 200,
@@ -47,15 +49,15 @@ class TagService implements IService {
     const serviceResponse: ServiceResponse = {
       status: 200
     };
-    if (validateNewTagRequest(requestBody)) {
-      await TagRepository.create(requestBody);
+    if (validateNewActiveIngredientRequest(requestBody)) {
+      await ActiveIngredientRepository.create(requestBody);
     } else {
       const exception: RefDataException = new RefDataException(
         400,
         'Invalid request.'
       );
       exception.errors = extractErrorMessagesFromValidationResult(
-        validateNewTagRequest.errors
+        validateNewActiveIngredientRequest.errors
       );
       throw exception;
     }
@@ -67,15 +69,15 @@ class TagService implements IService {
     const serviceResponse: ServiceResponse = {
       status: 200
     };
-    if (validateUpdateTagRequest(requestBody)) {
-      await TagRepository.update(requestBody);
+    if (validateUpdateActiveIngredientRequest(requestBody)) {
+      await ActiveIngredientRepository.update(requestBody);
     } else {
       const exception: RefDataException = new RefDataException(
         400,
         'Invalid request.'
       );
       exception.errors = extractErrorMessagesFromValidationResult(
-        validateUpdateTagRequest.errors
+        validateUpdateActiveIngredientRequest.errors
       );
       throw exception;
     }
@@ -89,11 +91,11 @@ class TagService implements IService {
       throw new RefDataException(400, 'id provided is not a valid number');
     }
     const queryResult: UpdateHistoryEntry[] | null =
-      await TagRepository.getUpdateHistory(validatedId.value);
+      await ActiveIngredientRepository.getUpdateHistory(validatedId.value);
     if (queryResult === null || queryResult.length <= 0) {
       throw new RefDataException(
         404,
-        `No update history entries found for tag with id: ${id}`
+        `No update history entries found for Active Ingredient with id: ${id}`
       );
     } else {
       const serviceResponse: ServiceResponse = {
@@ -105,4 +107,4 @@ class TagService implements IService {
   }
 }
 
-export default new TagService();
+export default new ActiveIngredientService();

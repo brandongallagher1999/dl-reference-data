@@ -1,11 +1,11 @@
-import { ActiveIngredient, UpdateHistoryEntry } from "@prisma/client";
-import prisma from "../client";
+import { ActiveIngredient, UpdateHistoryEntry } from '@prisma/client';
+import prisma from '../client';
 import {
   NewActiveIngredientRequest,
-  UpdateActiveIngredientRequest,
-} from "../models/ActiveIngredientRequest";
-import { CrudInstruction } from "../types";
-import IRepository from "./IRepository";
+  UpdateActiveIngredientRequest
+} from '../models/ActiveIngredientRequest';
+import { CrudInstruction } from '../types';
+import IRepository from './IRepository';
 
 /**
  * @classdesc Db Operations for ActiveIngredients
@@ -37,8 +37,8 @@ class ActiveIngredientRepository implements IRepository {
     return prisma.$transaction(async (prisma) => {
       const savedActiveIngredient = await prisma.activeIngredient.create({
         data: {
-          name: newActiveIngredient.name,
-        },
+          name: newActiveIngredient.name
+        }
       });
 
       await prisma.updateHistoryEntry.create({
@@ -46,10 +46,10 @@ class ActiveIngredientRepository implements IRepository {
           userId: newActiveIngredient.userId,
           dataId: savedActiveIngredient.id,
           instruction: CrudInstruction.CREATE,
-          tableName: "active_ingredients",
+          tableName: 'active_ingredients',
           data: JSON.stringify(newActiveIngredient),
-          createdAt: new Date(),
-        },
+          createdAt: new Date()
+        }
       });
 
       return savedActiveIngredient;
@@ -66,21 +66,21 @@ class ActiveIngredientRepository implements IRepository {
     return prisma.$transaction(async (prisma) => {
       const savedActiveIngredient = await prisma.activeIngredient.update({
         where: {
-          id: updatedActiveIngredient.id,
+          id: updatedActiveIngredient.id
         },
         data: {
-          name: updatedActiveIngredient.name,
-        },
+          name: updatedActiveIngredient.name
+        }
       });
       await prisma.updateHistoryEntry.create({
         data: {
           userId: updatedActiveIngredient.userId,
           dataId: savedActiveIngredient.id,
           instruction: CrudInstruction.UPDATE,
-          tableName: "active_ingredients",
+          tableName: 'active_ingredients',
           data: JSON.stringify(updatedActiveIngredient),
-          createdAt: new Date(),
-        },
+          createdAt: new Date()
+        }
       });
 
       return savedActiveIngredient;
@@ -95,8 +95,8 @@ class ActiveIngredientRepository implements IRepository {
     return prisma.updateHistoryEntry.findMany({
       where: {
         dataId: id,
-        tableName: "active_ingredients",
-      },
+        tableName: 'active_ingredients'
+      }
     });
   }
 }
