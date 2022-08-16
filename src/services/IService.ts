@@ -1,4 +1,4 @@
-import { ServiceResponse } from "dlpos-core";
+import { ServiceResponse } from 'dlpos-core';
 
 interface IService {
   findAll(): Promise<ServiceResponse>;
