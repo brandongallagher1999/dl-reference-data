@@ -12,14 +12,20 @@ import {
   NewDosageFormTypeRequest,
   UpdateDosageFormTypeRequest
 } from '../models/DosageFormTypeRequests';
-import * as newDosageFormTypeRequestScheme from '../schemas/new_dosage_form_type_request_scheme.json';
-import * as updateDosageFormTypeRequestScheme from '../schemas/update_dosage_form_type_request_scheme.json';
+import * as newDosageFormTypeRequestSchema from '../schemas/new_dosage_form_type_request_schema.json';
+import * as updateDosageFormTypeRequestSchema from '../schemas/update_dosage_form_type_request_schema.json';
 import {
   NewDosageFormRequest,
   UpdateDosageFormRequest
 } from '../models/DosageFormRequests';
-import * as newDosageFormRequestScheme from '../schemas/new_dosage_form_request_schema.json';
-import * as updateDosageFormRequestScheme from '../schemas/update_dosage_form_request_schema.json';
+import * as newDosageFormRequestSchema from '../schemas/new_dosage_form_request_schema.json';
+import * as updateDosageFormRequestSchema from '../schemas/update_dosage_form_request_schema.json';
+import {
+  NewManufacturerRequest,
+  UpdateManufacturerRequest
+} from '../models/ManufacturerRequests';
+import * as newManufacturerRequestSchema from '../schemas/new_manufacturer_request_schema.json';
+import * as updateManufacturerRequestSchema from '../schemas/update_manufacturer_request_schema.json';
 
 const ajv = new Ajv({ allErrors: true });
 
@@ -35,11 +41,15 @@ export const validateUpdateActiveIngredientRequest =
     updateActiveIngredientRequestSchema
   );
 export const validateNewDosageFormTypeRequest =
-  ajv.compile<NewDosageFormTypeRequest>(newDosageFormTypeRequestScheme);
+  ajv.compile<NewDosageFormTypeRequest>(newDosageFormTypeRequestSchema);
 export const validateUpdateDosageFormTypeRequest =
-  ajv.compile<UpdateDosageFormTypeRequest>(updateDosageFormTypeRequestScheme);
+  ajv.compile<UpdateDosageFormTypeRequest>(updateDosageFormTypeRequestSchema);
 export const validateNewDosageFormRequest = ajv.compile<NewDosageFormRequest>(
-  newDosageFormRequestScheme
+  newDosageFormRequestSchema
 );
 export const validateUpdateDosageFormRequest =
-  ajv.compile<UpdateDosageFormRequest>(updateDosageFormRequestScheme);
+  ajv.compile<UpdateDosageFormRequest>(updateDosageFormRequestSchema);
+export const validateNewManufacturerRequest =
+  ajv.compile<NewManufacturerRequest>(newManufacturerRequestSchema);
+export const validateUpdateManufacturerRequest =
+  ajv.compile<UpdateManufacturerRequest>(updateManufacturerRequestSchema);
