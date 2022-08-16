@@ -1,6 +1,6 @@
 enum CrudInstruction {
-  CREATE = 'Create',
-  UPDATE = 'Update'
+  CREATE = "Create",
+  UPDATE = "Update",
 }
 type NumberValidationResult = {
   isValid: boolean;

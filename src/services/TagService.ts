@@ -1,17 +1,17 @@
-import { ServiceResponse } from 'dlpos-core';
-import TagRepository from '../repositories/TagRepository';
-import IService from './IService';
-import RefDataException from '../exceptions/RefDataException';
-import { Tag, UpdateHistoryEntry } from '@prisma/client';
+import { ServiceResponse } from "dlpos-core";
+import TagRepository from "../repositories/TagRepository";
+import IService from "./IService";
+import RefDataException from "../exceptions/RefDataException";
+import { Tag, UpdateHistoryEntry } from "@prisma/client";
 import {
   validateNewTagRequest,
-  validateUpdateTagRequest
-} from '../utils/RequestValidator';
+  validateUpdateTagRequest,
+} from "../utils/RequestValidator";
 import {
   extractErrorMessagesFromValidationResult,
   formatUpdateHistory,
-  safeParseInt
-} from '../utils/CommonUtils';
+  safeParseInt,
+} from "../utils/CommonUtils";
 
 class TagService implements IService {
   async findAll(): Promise<ServiceResponse> {
@@ -19,7 +19,7 @@ class TagService implements IService {
     const serviceResponse: ServiceResponse = {
       status: 200,
       itemCount: queryResult.length,
-      data: queryResult
+      data: queryResult,
     };
     return serviceResponse;
   }
@@ -27,7 +27,7 @@ class TagService implements IService {
   async findById(id: string): Promise<ServiceResponse> {
     const validatedId = safeParseInt(id);
     if (!validatedId.isValid) {
-      throw new RefDataException(400, 'id provided is not a valid number');
+      throw new RefDataException(400, "id provided is not a valid number");
     }
     const queryResult: Tag | null = await TagRepository.findById(
       validatedId.value
@@ -37,7 +37,7 @@ class TagService implements IService {
     } else {
       const serviceResponse: ServiceResponse = {
         status: 200,
-        data: [queryResult]
+        data: [queryResult],
       };
       return serviceResponse;
     }
@@ -45,14 +45,14 @@ class TagService implements IService {
 
   async create(requestBody: any): Promise<ServiceResponse> {
     const serviceResponse: ServiceResponse = {
-      status: 200
+      status: 200,
     };
     if (validateNewTagRequest(requestBody)) {
       await TagRepository.create(requestBody);
     } else {
       const exception: RefDataException = new RefDataException(
         400,
-        'Invalid request.'
+        "Invalid request."
       );
       exception.errors = extractErrorMessagesFromValidationResult(
         validateNewTagRequest.errors
@@ -65,14 +65,14 @@ class TagService implements IService {
 
   async update(requestBody: any): Promise<ServiceResponse> {
     const serviceResponse: ServiceResponse = {
-      status: 200
+      status: 200,
     };
     if (validateUpdateTagRequest(requestBody)) {
       await TagRepository.update(requestBody);
     } else {
       const exception: RefDataException = new RefDataException(
         400,
-        'Invalid request.'
+        "Invalid request."
       );
       exception.errors = extractErrorMessagesFromValidationResult(
         validateUpdateTagRequest.errors
@@ -86,7 +86,7 @@ class TagService implements IService {
   async getUpdateHistory(id: string): Promise<ServiceResponse> {
     const validatedId = safeParseInt(id);
     if (!validatedId.isValid) {
-      throw new RefDataException(400, 'id provided is not a valid number');
+      throw new RefDataException(400, "id provided is not a valid number");
     }
     const queryResult: UpdateHistoryEntry[] | null =
       await TagRepository.getUpdateHistory(validatedId.value);
@@ -98,7 +98,7 @@ class TagService implements IService {
     } else {
       const serviceResponse: ServiceResponse = {
         status: 200,
-        data: formatUpdateHistory(queryResult)
+        data: formatUpdateHistory(queryResult),
       };
       return serviceResponse;
     }

@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express';
-import HttpException from '../exceptions/RefDataException';
+import { NextFunction, Request, Response } from "express";
+import HttpException from "../exceptions/RefDataException";
 
 function refDataErrorMiddleware(
   error: HttpException,
@@ -9,18 +9,18 @@ function refDataErrorMiddleware(
 ) {
   console.error(error);
   const status = error.status || 500;
-  const message = error.message || 'Sorry something went boom on our end!';
+  const message = error.message || "Sorry something went boom on our end!";
   const errors = error?.errors;
   if (errors != undefined) {
     response.status(status).send({
       status,
       message,
-      errors
+      errors,
     });
   } else {
     response.status(status).send({
       status,
-      message
+      message,
     });
   }
 }
