@@ -1,5 +1,5 @@
-interface IModel {
+interface IRefDataRequest {
   toString(): void;
 }
 
-export default IModel;
+export default IRefDataRequest;

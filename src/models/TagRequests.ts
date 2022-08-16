@@ -1,17 +1,18 @@
-import IModel from './IModel';
+import IRefDataRequest from './IModel';
+
 /**
  * Class Representing a Request to Update a Tag
  */
-export class UpdateTagRequest implements IModel {
+export class UpdateTagRequest implements IRefDataRequest {
   id: number;
   name: string;
   userId: number;
 
   /**
    *
-   * @param { number } id
-   * @param { string } name
-   * @param { number } userId
+   * @param { number } id id of the tag being updated
+   * @param { string } name new name for the tag
+   * @param { number } userId id of the user that made the update tag request
    */
   constructor(id: number, name: string, userId: number) {
     this.id = id;
@@ -23,14 +24,14 @@ export class UpdateTagRequest implements IModel {
 /**
  * Class Representing a Request to Create a Tag
  */
-export class NewTagRequest implements IModel {
+export class NewTagRequest implements IRefDataRequest {
   name: string;
   userId: number;
 
   /**
    *
-   * @param { string } name
-   * @param { number } userId
+   * @param { string } name name of the new Tag
+   * @param { number } userId id of the user that made the new tag request
    */
   constructor(name: string, userId: number) {
     this.name = name;

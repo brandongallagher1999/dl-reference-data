@@ -3,12 +3,13 @@ import prisma from '../client';
 import { NewTagRequest, UpdateTagRequest } from '../models/TagRequests';
 import { CrudInstruction } from '../types';
 import IRepository from './IRepository';
+
 /**
- * Db Operations for Tags
+ * @classdesc Db Operations for Tags
  */
 class TagRepository implements IRepository {
   /**
-   *
+   * Returns an array of all existing tags
    * @return { Promise<Tag []> }
    */
   findAll(): Promise<Tag[]> {

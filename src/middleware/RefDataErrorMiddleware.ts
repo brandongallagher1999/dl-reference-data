@@ -1,18 +1,16 @@
-import { Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import HttpException from '../exceptions/RefDataException';
-import { logger } from '../../logger';
 
-/**
- *
- * @param { HttpException } error
- * @param { Response } response
- */
-function RefDataErrorMiddleware(error: HttpException, response: Response) {
-  logger.error(error);
+function refDataErrorMiddleware(
+  error: HttpException,
+  request: Request,
+  response: Response,
+  next: NextFunction
+) {
+  console.error(error);
   const status = error.status || 500;
   const message = error.message || 'Sorry something went boom on our end!';
   const errors = error?.errors;
-
   if (errors != undefined) {
     response.status(status).send({
       status,
@@ -27,4 +25,4 @@ function RefDataErrorMiddleware(error: HttpException, response: Response) {
   }
 }
 
-export default RefDataErrorMiddleware;
+export default refDataErrorMiddleware;
