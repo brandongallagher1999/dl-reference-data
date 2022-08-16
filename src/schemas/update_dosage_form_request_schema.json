@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "Update Dosage Form Request",
+    "description": "Request to update a Dosage Form",
+    "type": "object",
+    "properties": {
+      "name": {
+        "description": "name of dosage form",
+        "type": "string"
+      },
+      "dosageFormTypeId": {
+        "description": "type of dosage form id",
+        "type": "integer"
+      },
+      "userId": {
+        "description": "user that sent the request",
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "name",
+      "dosageFormTypeId",
+      "userId"
+    ]
+  }

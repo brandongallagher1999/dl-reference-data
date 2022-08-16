@@ -10,7 +10,7 @@
         },
         "userId": {
             "description": "user that sent the new dosage form type request",
-            "type": "number",
+            "type": "integer",
             "exclusiveMinimum": 0
         }
     },

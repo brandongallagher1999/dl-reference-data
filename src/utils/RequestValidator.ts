@@ -14,6 +14,12 @@ import {
 } from '../models/DosageFormTypeRequests';
 import * as newDosageFormTypeRequestScheme from '../schemas/new_dosage_form_type_request_scheme.json';
 import * as updateDosageFormTypeRequestScheme from '../schemas/update_dosage_form_type_request_scheme.json';
+import {
+  NewDosageFormRequest,
+  UpdateDosageFormRequest
+} from '../models/DosageFormRequests';
+import * as newDosageFormRequestScheme from '../schemas/new_dosage_form_request_schema.json';
+import * as updateDosageFormRequestScheme from '../schemas/update_dosage_form_request_schema.json';
 
 const ajv = new Ajv({ allErrors: true });
 
@@ -32,3 +38,8 @@ export const validateNewDosageFormTypeRequest =
   ajv.compile<NewDosageFormTypeRequest>(newDosageFormTypeRequestScheme);
 export const validateUpdateDosageFormTypeRequest =
   ajv.compile<UpdateDosageFormTypeRequest>(updateDosageFormTypeRequestScheme);
+export const validateNewDosageFormRequest = ajv.compile<NewDosageFormRequest>(
+  newDosageFormRequestScheme
+);
+export const validateUpdateDosageFormRequest =
+  ajv.compile<UpdateDosageFormRequest>(updateDosageFormRequestScheme);

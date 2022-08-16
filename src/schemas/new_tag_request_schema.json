@@ -10,7 +10,7 @@
     },
     "userId": {
       "description": "user that sent the new tag request",
-      "type": "number",
+      "type": "integer",
       "exclusiveMinimum": 0
     }
   },
