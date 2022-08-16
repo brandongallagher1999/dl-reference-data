@@ -43,9 +43,9 @@ export function bigIntSerializer(json: object) {
  * @param { Prisma.JsonValue } entry
  * @return { Prisma.JsonValue }
  */
-export function cleanDbJson(entry: Prisma.JsonValue) {
+export function cleanDbJson(entry: Prisma.JsonValue): string | undefined {
   const cleanedJson = entry?.toString().replace('\\', '');
-  return cleanedJson as Prisma.JsonValue;
+  return cleanedJson;
 }
 
 /**
@@ -60,9 +60,13 @@ export function formatUpdateHistory(
     bigIntSerializer(updateHistory);
 
   bigIntSerializedUpdateHistory.forEach((updateHistoryEntry) => {
-    updateHistoryEntry.data = cleanDbJson(updateHistoryEntry.data);
+    const cleanJson = cleanDbJson(updateHistoryEntry.data);
+    if (cleanJson !== undefined) {
+      updateHistoryEntry.data = JSON.parse(cleanJson);
+    }
   });
 
+  console.log(JSON.stringify(bigIntSerializedUpdateHistory));
   return bigIntSerializedUpdateHistory;
 }
 /**
