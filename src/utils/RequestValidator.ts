@@ -26,6 +26,12 @@ import {
 } from '../models/ManufacturerRequests';
 import * as newManufacturerRequestSchema from '../schemas/new_manufacturer_request_schema.json';
 import * as updateManufacturerRequestSchema from '../schemas/update_manufacturer_request_schema.json';
+import {
+  NewPaymentMethodRequest,
+  UpdatePaymentMethodRequest
+} from '../models/PaymentMethodRequests';
+import * as newPaymentMethodRequestSchema from '../schemas/new_payment_method_request_schema.json';
+import * as updatePaymentMethodRequestSchema from '../schemas/update_payment_method_schema.json';
 
 const ajv = new Ajv({ allErrors: true });
 
@@ -53,3 +59,7 @@ export const validateNewManufacturerRequest =
   ajv.compile<NewManufacturerRequest>(newManufacturerRequestSchema);
 export const validateUpdateManufacturerRequest =
   ajv.compile<UpdateManufacturerRequest>(updateManufacturerRequestSchema);
+export const validateNewPaymentMethodRequest =
+  ajv.compile<NewPaymentMethodRequest>(newPaymentMethodRequestSchema);
+export const validateUpdatePaymentMethodRequest =
+  ajv.compile<UpdatePaymentMethodRequest>(updatePaymentMethodRequestSchema);
