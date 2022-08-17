@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "Update Supplier Request",
+    "description": "Request to update Supplier",
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "id of the Supplier to update",
+        "type": "integer"
+      },
+      "name": {
+        "description": "new name for the Supplier",
+        "type": "string"
+      },
+      "userId": {
+        "description": "id of the user making the request",
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "userId"
+    ]
+  }

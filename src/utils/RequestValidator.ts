@@ -38,6 +38,12 @@ import {
 } from '../models/ProductCategoryRequests';
 import * as newProductCategoryRequestSchema from '../schemas/new_product_category_request_schema.json';
 import * as updateProductCategoryRequestSchema from '../schemas/update_product_category_request_schema.json';
+import {
+  NewSupplierRequest,
+  UpdateSupplierRequest
+} from '../models/SupplierRequests';
+import * as newSupplierRequestSchema from '../schemas/new_supplier_request_schema.json';
+import * as updateSupplierRequestSchema from '../schemas/update_supplier_request_schema.json';
 
 const ajv = new Ajv({ allErrors: true });
 
@@ -73,3 +79,9 @@ export const validateNewProductCategoryRequest =
   ajv.compile<NewProductCategoryRequest>(newProductCategoryRequestSchema);
 export const validateUpdateProductCategoryRequest =
   ajv.compile<UpdateProductCategoryRequest>(updateProductCategoryRequestSchema);
+export const validateNewSupplierRequest = ajv.compile<NewSupplierRequest>(
+  newSupplierRequestSchema
+);
+export const validateUpdateSupplierRequest = ajv.compile<UpdateSupplierRequest>(
+  updateSupplierRequestSchema
+);
