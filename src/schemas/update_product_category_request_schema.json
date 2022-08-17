@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "Update Product Category Request",
+    "description": "Request to update a product category",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "id of the entry to update",
+            "type": "integer"
+        },
+        "name": {
+            "description": "new name for the product category",
+            "type": "string"
+        },
+        "userId": {
+            "description": "id of the user making the request",
+            "type": "number",
+            "exclusiveMinimum": 0
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "userId"
+    ]
+}

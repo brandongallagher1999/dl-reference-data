@@ -32,6 +32,12 @@ import {
 } from '../models/PaymentMethodRequests';
 import * as newPaymentMethodRequestSchema from '../schemas/new_payment_method_request_schema.json';
 import * as updatePaymentMethodRequestSchema from '../schemas/update_payment_method_schema.json';
+import {
+  NewProductCategoryRequest,
+  UpdateProductCategoryRequest
+} from '../models/ProductCategoryRequests';
+import * as newProductCategoryRequestSchema from '../schemas/new_product_category_request_schema.json';
+import * as updateProductCategoryRequestSchema from '../schemas/update_product_category_request_schema.json';
 
 const ajv = new Ajv({ allErrors: true });
 
@@ -63,3 +69,7 @@ export const validateNewPaymentMethodRequest =
   ajv.compile<NewPaymentMethodRequest>(newPaymentMethodRequestSchema);
 export const validateUpdatePaymentMethodRequest =
   ajv.compile<UpdatePaymentMethodRequest>(updatePaymentMethodRequestSchema);
+export const validateNewProductCategoryRequest =
+  ajv.compile<NewProductCategoryRequest>(newProductCategoryRequestSchema);
+export const validateUpdateProductCategoryRequest =
+  ajv.compile<UpdateProductCategoryRequest>(updateProductCategoryRequestSchema);

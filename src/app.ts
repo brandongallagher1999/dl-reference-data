@@ -6,6 +6,7 @@ import dosageFormTypeRouter from './routes/DosageFormTypeRouter';
 import dosageFormRouter from './routes/DosageFormRouter';
 import manufacturerRouter from './routes/ManufacturerRouter';
 import paymentMethodRouter from './routes/PaymentMethodRouter';
+import productCategoryRouter from './routes/ProductCategoryRouter';
 import RefDataErrorMiddleware from './middleware/RefDataErrorMiddleware';
 
 const SageService = express();
@@ -23,6 +24,7 @@ SageService.use(dosageFormTypeRouter);
 SageService.use(dosageFormRouter);
 SageService.use(manufacturerRouter);
 SageService.use(paymentMethodRouter);
+SageService.use(productCategoryRouter);
 
 //error handling middleware
 SageService.use(RefDataErrorMiddleware);
