@@ -44,6 +44,12 @@ import {
 } from '../models/SupplierRequests';
 import * as newSupplierRequestSchema from '../schemas/new_supplier_request_schema.json';
 import * as updateSupplierRequestSchema from '../schemas/update_supplier_request_schema.json';
+import {
+  NewUnitTypeRequest,
+  UpdateUnitTypeRequest
+} from '../models/UnitTypeRequests';
+import * as newUnitTypeRequestSchema from '../schemas/new_supplier_request_schema.json';
+import * as updateUnitTypeRequestSchema from '../schemas/update_supplier_request_schema.json';
 
 const ajv = new Ajv({ allErrors: true });
 
@@ -84,4 +90,10 @@ export const validateNewSupplierRequest = ajv.compile<NewSupplierRequest>(
 );
 export const validateUpdateSupplierRequest = ajv.compile<UpdateSupplierRequest>(
   updateSupplierRequestSchema
+);
+export const validateNewUnitTypeRequest = ajv.compile<NewUnitTypeRequest>(
+  newUnitTypeRequestSchema
+);
+export const validateUpdateUnitTypeRequest = ajv.compile<UpdateUnitTypeRequest>(
+  updateUnitTypeRequestSchema
 );

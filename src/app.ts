@@ -8,6 +8,7 @@ import manufacturerRouter from './routes/ManufacturerRouter';
 import paymentMethodRouter from './routes/PaymentMethodRouter';
 import productCategoryRouter from './routes/ProductCategoryRouter';
 import supplierRouter from './routes/SupplierRouter';
+import unitTypeRouter from './routes/UnitTypeRouter';
 import RefDataErrorMiddleware from './middleware/RefDataErrorMiddleware';
 
 const SageService = express();
@@ -28,6 +29,7 @@ SageService.use(manufacturerRouter);
 SageService.use(paymentMethodRouter);
 SageService.use(productCategoryRouter);
 SageService.use(supplierRouter);
+SageService.use(unitTypeRouter);
 
 //error handling middleware
 SageService.use(RefDataErrorMiddleware);
