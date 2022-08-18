@@ -1,19 +1,19 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "title": "Update Dosage Form Request",
-    "description": "Request to update a Dosage Form",
+    "title": "Update Unit Request",
+    "description": "Request to update a Unit",
     "type": "object",
     "properties": {
-      "id": {
-        "description": "id of dosage form",
-        "type": "integer"
-      },
-      "name": {
-        "description": "name of dosage form",
+      "shortName": {
+        "description": "abbreviated name of Unit",
         "type": "string"
       },
-      "dosageFormTypeId": {
-        "description": "type of dosage form id",
+      "longName": {
+        "description": "full name of Unit",
+        "type": "string"
+      },
+      "unitTypeId": {
+        "description": "type of Unit id",
         "type": "integer"
       },
       "userId": {
@@ -24,8 +24,9 @@
     },
     "required": [
       "id",
-      "name",
-      "dosageFormTypeId",
+      "shortName",
+      "longName",
+      "unitTypeId",
       "userId"
     ]
   }

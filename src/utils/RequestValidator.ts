@@ -1,13 +1,13 @@
 import Ajv from 'ajv';
+import { NewTagRequest, UpdateTagRequest } from '../models/TagRequests';
 import * as newTagRequestSchema from '../schemas/new_tag_request_schema.json';
 import * as updateTagRequestSchema from '../schemas/update_tag_request_schema.json';
-import * as newActiveIngredientRequestSchema from '../schemas/new_active_ingredient_request_schema.json';
-import * as updateActiveIngredientRequestSchema from '../schemas/update_active_ingredient_request_schema.json';
-import { NewTagRequest, UpdateTagRequest } from '../models/TagRequests';
 import {
   NewActiveIngredientRequest,
   UpdateActiveIngredientRequest
 } from '../models/ActiveIngredientRequest';
+import * as newActiveIngredientRequestSchema from '../schemas/new_active_ingredient_request_schema.json';
+import * as updateActiveIngredientRequestSchema from '../schemas/update_active_ingredient_request_schema.json';
 import {
   NewDosageFormTypeRequest,
   UpdateDosageFormTypeRequest
@@ -48,8 +48,11 @@ import {
   NewUnitTypeRequest,
   UpdateUnitTypeRequest
 } from '../models/UnitTypeRequests';
-import * as newUnitTypeRequestSchema from '../schemas/new_supplier_request_schema.json';
-import * as updateUnitTypeRequestSchema from '../schemas/update_supplier_request_schema.json';
+import * as newUnitTypeRequestSchema from '../schemas/new_unit_type_request_schema.json';
+import * as updateUnitTypeRequestSchema from '../schemas/update_unit_type_request_schema.json';
+import { NewUnitRequest, UpdateUnitRequest } from '../models/UnitRequests';
+import * as newUnitRequestSchema from '../schemas/new_unit_request_schema.json';
+import * as updateUnitRequestSchema from '../schemas/update_unit_request_schema.json';
 
 const ajv = new Ajv({ allErrors: true });
 
@@ -96,4 +99,9 @@ export const validateNewUnitTypeRequest = ajv.compile<NewUnitTypeRequest>(
 );
 export const validateUpdateUnitTypeRequest = ajv.compile<UpdateUnitTypeRequest>(
   updateUnitTypeRequestSchema
+);
+export const validateNewUnitRequest =
+  ajv.compile<NewUnitRequest>(newUnitRequestSchema);
+export const validateUpdateUnitRequest = ajv.compile<UpdateUnitRequest>(
+  updateUnitRequestSchema
 );
