@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "New Manufacturer Request",
+    "description": "Request to create a new Manufacturer",
+    "type": "object",
+    "properties": {
+      "shortName": {
+        "description": "short name (abbreviation) of the Manufacturer",
+        "type": "string"
+      },
+      "longName": {
+        "description": "long name (full name) of the Manufacturer",
+        "type": "string"
+      },
+      "userId": {
+        "description": "user that sent the request",
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "shortName",
+      "longName",
+      "userId"
+    ]
+  }

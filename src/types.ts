@@ -1,6 +1,10 @@
-export enum Instruction {
-  READ = "READ",
-  READ_FILTERED = "READ_FILTERED",
-  CREATE = "CREATE",
-  UPDATE = "UPDATE",
+enum CrudInstruction {
+  CREATE = 'Create',
+  UPDATE = 'Update'
 }
+type NumberValidationResult = {
+  isValid: boolean;
+  value: number;
+};
+
+export { CrudInstruction, NumberValidationResult };

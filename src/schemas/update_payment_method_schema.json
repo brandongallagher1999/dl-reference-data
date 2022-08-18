@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "Update Payment Method Request",
+    "description": "Request to update a Payment Method",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "id of the payment method",
+            "type": "integer"
+        },
+        "shortName": {
+            "description": "short name of the payment method",
+            "type": "string"
+        },
+        "longName": {
+            "description": "name of the payment method",
+            "type": "string"
+        },
+        "userId": {
+            "description": "user that sent the request",
+            "type": "integer",
+            "exclusiveMinimum": 0
+        }
+    },
+    "required": [
+        "id",
+        "shortName",
+        "longName",
+        "userId"
+    ]
+}

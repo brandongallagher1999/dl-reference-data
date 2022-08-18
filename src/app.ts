@@ -1,44 +1,43 @@
-import express from "express";
-import bodyParser from "body-parser";
-import manufacturerRouter from "./modules/manufacturer/manufacturer.router";
-import supplierRouter from "./modules/supplier/supplier.router";
-import paymentMethodRouter from "./modules/payment-method/payment-method.router";
-import productCategoryRouter from "./modules/product-category/product-category.router";
-import activeIngredientsRouter from "./modules/active-ingredient/active-ingredient.router";
-import unitRouter from "./modules/unit/unit.router";
-import tagRouter from "./modules/tag/tag.router";
-import dosageFormRouter from "./modules/dosage-form/dosage-form.router";
-import dosageFormTypeRouter from "./modules/dosage-form-type/dosage-form-type.router";
-import errorMiddleware from "./middleware/error.Middleware";
-import unitTypeRouter from "./modules/unity-type/unit-type.router";
-import refDataUpdateHistoryRouter from "./modules/update-history/update-history-router";
+import express from 'express';
+import bodyParser from 'body-parser';
+import tagRouter from './routes/TagRouter';
+import activeIngredientRouter from './routes/ActiveIngredientRouter';
+import dosageFormTypeRouter from './routes/DosageFormTypeRouter';
+import dosageFormRouter from './routes/DosageFormRouter';
+import manufacturerRouter from './routes/ManufacturerRouter';
+import paymentMethodRouter from './routes/PaymentMethodRouter';
+import productCategoryRouter from './routes/ProductCategoryRouter';
+import supplierRouter from './routes/SupplierRouter';
+import unitTypeRouter from './routes/UnitTypeRouter';
+import unitRouter from './routes/UnitRouter';
+import RefDataErrorMiddleware from './middleware/RefDataErrorMiddleware';
 
-const ReferenceDataService = express();
+const SageService = express();
 
-ReferenceDataService.use(bodyParser.json());
-ReferenceDataService.use(
+SageService.use(bodyParser.json());
+SageService.use(
   bodyParser.urlencoded({
-    extended: true,
+    extended: true
   })
 );
-ReferenceDataService.use(manufacturerRouter);
-ReferenceDataService.use(supplierRouter);
-ReferenceDataService.use(paymentMethodRouter);
-ReferenceDataService.use(productCategoryRouter);
-ReferenceDataService.use(activeIngredientsRouter);
-ReferenceDataService.use(unitRouter);
-ReferenceDataService.use(tagRouter);
-ReferenceDataService.use(dosageFormRouter);
-ReferenceDataService.use(dosageFormTypeRouter);
-ReferenceDataService.use(unitTypeRouter);
-ReferenceDataService.use(refDataUpdateHistoryRouter);
-ReferenceDataService.use(errorMiddleware);
 
-ReferenceDataService.get(
-  "/xibalba/v1/refdata/serviceInfo",
-  (request, response) => {
-    response.json({ serviceName: "Reference Data Service", version: "1.0.0" });
-  }
-);
+//Routers
+SageService.use(tagRouter);
+SageService.use(activeIngredientRouter);
+SageService.use(dosageFormTypeRouter);
+SageService.use(dosageFormRouter);
+SageService.use(manufacturerRouter);
+SageService.use(paymentMethodRouter);
+SageService.use(productCategoryRouter);
+SageService.use(supplierRouter);
+SageService.use(unitTypeRouter);
+SageService.use(unitRouter);
 
-export default ReferenceDataService;
+//error handling middleware
+SageService.use(RefDataErrorMiddleware);
+
+SageService.get('/sage/v1/serviceInfo', (request, response) => {
+  response.json({ serviceName: 'Sage Data Service', version: '1.0.0' });
+});
+
+export default SageService;
